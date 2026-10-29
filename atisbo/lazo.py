@@ -10,6 +10,7 @@ from atisbo.env.perturbaciones import ANADIR, BLOQUEO, DURACION_BLOQUEO, MOVER, 
 from atisbo.env.rutina import elegir_accion
 from atisbo.env.trazas import PRESUPUESTO, _resuelve_sin_perturbaciones, _sin_bloqueo, estado_inicial
 from atisbo.estado import vector
+from atisbo.sorpresa import sorpresa
 
 K = 8
 
@@ -94,36 +95,9 @@ def _ventana_hist(historia) -> np.ndarray:
     return np.stack([vector(s) for s in seq]).astype(np.float32)
 
 
-def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None):
-    """Un episodio con el lazo 5 (solo variante LLM en cada paso)."""
-    if registro is None:
-        registro = []
-    inv_antes = int(getattr(politica, "llm_invalidas", 0))
-    pet_antes = int(getattr(politica, "peticiones", 0))
-    red_antes = int(getattr(politica, "llamadas_red", 0))
-    s = mundo.reiniciar()
-    historia = [s]
-    pasos = 0
-    truncada = False
-    while pasos < PRESUPUESTO and not es_exito(s):
-        ventana = _ventana_hist(historia)
-        pred = predictor.predecir(ventana)
-        conf = float(pred.confianza)
-        if conf < float(tau):
-            accion, lat = politica.decidir(s)
-            if bool(getattr(politica, "truncada", False)):
-                truncada = True
-                break
-            rutina = elegir_accion(s)
-            registro.append({"fuente": "llm", "conf": conf, "sorpresa": 0.0, "latencia_ms": float(lat), "accion": accion.name, "accion_rutina": rutina.name})
-            s = mundo.avanzar(s, accion)
-            historia.append(s)
-            pasos += 1
-            continue
-        raise NotImplementedError("rama de Atisbo: O3")
-    llamadas = sum(1 for e in registro if e.get("fuente") == "llm")
-    latencias = [float(e.get("latencia_ms", 0.0)) for e in registro if e.get("fuente") == "llm"]
-    rachas = []
+def metricas_desde_registro(registro) -> dict:
+    """Racha media, malas aceptadas, tasa y llamadas por sorpresa sobre el registro por paso. Llamadas por sorpresa cuenta los pasos llm con sorpresa distinta de 0.0: los llm por confianza baja llevan sorpresa 0.0 y los disparados por sorpresa llevan el valor que la disparó (o NaN, que cuenta al ser != 0.0)."""
+    rachas: list = []
     actual = 0
     for e in registro:
         if e.get("fuente") == "atisbo":
@@ -136,8 +110,75 @@ def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None):
         rachas.append(actual)
     racha_media = float(sum(rachas) / len(rachas)) if rachas else 0.0
     malas = sum(1 for e in registro if e.get("fuente") == "atisbo" and e.get("accion") != e.get("accion_rutina"))
-    tasa = float(malas / pasos) if pasos else 0.0
+    tasa = float(malas / len(registro)) if registro else 0.0
+    por_sorpresa = sum(1 for e in registro if e.get("fuente") == "llm" and float(e.get("sorpresa", 0.0)) != 0.0)
+    return {"racha_media": float(racha_media), "malas_aceptadas": int(malas), "tasa_malas_aceptadas": float(tasa), "llamadas_por_sorpresa": int(por_sorpresa)}
+
+
+def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None):
+    """Un episodio con el lazo 5 (LLM si conf < tau; si no, bloque Atisbo de 3)."""
+    if registro is None:
+        registro = []
+    n0 = len(registro)
+    inv_antes = int(getattr(politica, "llm_invalidas", 0))
+    pet_antes = int(getattr(politica, "peticiones", 0))
+    red_antes = int(getattr(politica, "llamadas_red", 0))
+    s = mundo.reiniciar()
+    historia = [s]
+    pasos = 0
+    truncada = False
+    while pasos < PRESUPUESTO and not es_exito(s):
+        ventana = _ventana_hist(historia)
+        pred = predictor.predecir(ventana)
+        conf = float(pred.confianza)
+        if not conf >= float(tau):
+            accion, lat = politica.decidir(s)
+            if bool(getattr(politica, "truncada", False)):
+                truncada = True
+                break
+            rutina = elegir_accion(s)
+            registro.append({"fuente": "llm", "conf": conf, "sorpresa": 0.0, "latencia_ms": float(lat), "accion": accion.name, "accion_rutina": rutina.name})
+            s = mundo.avanzar(s, accion)
+            historia.append(s)
+            pasos += 1
+            continue
+        for j in range(3):
+            if pasos >= PRESUPUESTO or es_exito(s):
+                break
+            if j > 0:
+                sorp = float(sorpresa(s, pred.estados[j - 1]))
+                if not sorp <= float(epsilon):
+                    accion_llm, lat_llm = politica.decidir(s)
+                    if bool(getattr(politica, "truncada", False)):
+                        truncada = True
+                        break
+                    rutina_llm = elegir_accion(s)
+                    registro.append({"fuente": "llm", "conf": conf, "sorpresa": sorp, "latencia_ms": float(lat_llm), "accion": accion_llm.name, "accion_rutina": rutina_llm.name})
+                    s = mundo.avanzar(s, accion_llm)
+                    historia.append(s)
+                    pasos += 1
+                    break
+                rutina = elegir_accion(s)
+                acc = pred.acciones[j]
+                registro.append({"fuente": "atisbo", "conf": conf, "sorpresa": sorp, "latencia_ms": 0.0, "accion": acc.name, "accion_rutina": rutina.name})
+                s = mundo.avanzar(s, acc)
+                historia.append(s)
+                pasos += 1
+            else:
+                rutina = elegir_accion(s)
+                acc = pred.acciones[j]
+                registro.append({"fuente": "atisbo", "conf": conf, "sorpresa": 0.0, "latencia_ms": 0.0, "accion": acc.name, "accion_rutina": rutina.name})
+                s = mundo.avanzar(s, acc)
+                historia.append(s)
+                pasos += 1
+        if truncada:
+            break
+    epis = registro[n0:]
+    llamadas = sum(1 for e in epis if e.get("fuente") == "llm")
+    latencias = [float(e.get("latencia_ms", 0.0)) for e in epis if e.get("fuente") == "llm"]
+    m = metricas_desde_registro(epis)
     inv_ep = int(getattr(politica, "llm_invalidas", inv_antes)) - inv_antes
     pet_ep = int(getattr(politica, "peticiones", pet_antes)) - pet_antes
     red_ep = int(getattr(politica, "llamadas_red", red_antes)) - red_antes
-    return {"pasos": int(pasos), "exito": bool(es_exito(s)), "llamadas_llm": int(llamadas), "peticiones": int(pet_ep), "llamadas_red": int(red_ep), "llm_invalidas": int(inv_ep), "truncada": bool(truncada or getattr(politica, "truncada", False)), "latencias_ms": latencias, "racha_media": float(racha_media), "malas_aceptadas": int(malas), "tasa_malas_aceptadas": float(tasa)}
+    tasa = float(int(m["malas_aceptadas"]) / pasos) if pasos else 0.0
+    return {"pasos": int(pasos), "exito": bool(es_exito(s)), "llamadas_llm": int(llamadas), "peticiones": int(pet_ep), "llamadas_red": int(red_ep), "llm_invalidas": int(inv_ep), "truncada": bool(truncada or getattr(politica, "truncada", False)), "latencias_ms": latencias, "racha_media": float(m["racha_media"]), "malas_aceptadas": int(m["malas_aceptadas"]), "tasa_malas_aceptadas": float(tasa), "llamadas_por_sorpresa": int(m["llamadas_por_sorpresa"])}
