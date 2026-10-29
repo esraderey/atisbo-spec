@@ -1,0 +1,7 @@
+.forja-muse/
+cache/
+.env
+.venv/
+*.pt
+__pycache__/
+demo/out/
