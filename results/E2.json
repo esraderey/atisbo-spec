@@ -1,0 +1,216 @@
+{
+  "commit": "92368b2066acc11d51b4b3742e5c8110483d739c",
+  "comparacion_e1": {
+    "commit": "2980ef771973acf887911392e77c06bdf58b2499",
+    "exito_media": 1.0,
+    "latencia_ms_media": 1108.6823805178688,
+    "llamadas_llm_media": 92.05,
+    "modo": "api"
+  },
+  "config": {
+    "episodios_completados": 50,
+    "epocas": 10,
+    "epsilon_por_seed": [
+      2.288594589025908,
+      2.299893877969635,
+      2.2628917753096163,
+      2.380486175405133,
+      2.3158444234982265
+    ],
+    "max_llm_calls": 3500,
+    "modelo": "muse-spark-1.3",
+    "n_episodios_por_seed": 10,
+    "n_trazas": 200,
+    "p_perturb": 0.02,
+    "rapido": false,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "seeds_evaluadas": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "semillas_mundo": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "tau": 0.5
+  },
+  "coste_estimado_usd": 3.15350125,
+  "exito_media": 0.96,
+  "experimento": "E2",
+  "fecha_utc": "2026-10-29T21:38:27Z",
+  "h1": false,
+  "h1_detalle": {
+    "delta_exito_pp": -4.0000000000000036,
+    "ratio_llamadas": 0.5351439435089625,
+    "umbral_delta_pp": -5.0,
+    "umbral_ratio": 0.3
+  },
+  "llamadas_llm": 2463,
+  "llm": {
+    "coste_estimado_usd": 3.15350125,
+    "llamadas": 2463,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "peticiones": 2463,
+    "tokens_entrada": 1210010,
+    "tokens_salida": 386115
+  },
+  "llm_invalidas": 0,
+  "metricas": {
+    "exito": {
+      "ic95": [
+        0.9,
+        1.0
+      ],
+      "media": 0.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9,
+        0.9,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "latencia_ms": {
+      "ic95": [
+        516.7992637953403,
+        572.5361929782615
+      ],
+      "media": 543.263871010408,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        549.5209494788016,
+        507.8253413110664,
+        521.7687386995628,
+        563.3109135379814,
+        573.893412024628
+      ]
+    },
+    "llamadas_llm": {
+      "ic95": [
+        45.419000000000004,
+        53.420500000000004
+      ],
+      "media": 49.26,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        48.9,
+        46.1,
+        43.4,
+        55.1,
+        52.8
+      ]
+    },
+    "llamadas_por_sorpresa": {
+      "ic95": [
+        0.06,
+        0.52
+      ],
+      "media": 0.26,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.6,
+        0.2,
+        0.4,
+        0.1,
+        0.0
+      ]
+    },
+    "malas_aceptadas": {
+      "ic95": [
+        10.2395,
+        15.84
+      ],
+      "media": 13.04,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        13.6,
+        14.9,
+        9.3,
+        17.2,
+        10.2
+      ]
+    },
+    "pasos": {
+      "ic95": [
+        97.034,
+        112.5605
+      ],
+      "media": 104.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        104.6,
+        101.4,
+        96.5,
+        116.4,
+        105.9
+      ]
+    },
+    "racha_media": {
+      "ic95": [
+        7.349777464202464,
+        8.299358062770564
+      ],
+      "media": 7.811449217449217,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        7.8291666666666675,
+        7.452878787878788,
+        8.376575091575091,
+        7.495530303030303,
+        7.903095238095238
+      ]
+    },
+    "tasa_malas_aceptadas": {
+      "ic95": [
+        0.09407041620713065,
+        0.1379865851778117
+      ],
+      "media": 0.11616111562988857,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.12216079220279856,
+        0.13031855531326525,
+        0.09428935534202725,
+        0.14024481279079132,
+        0.0937920625005605
+      ]
+    }
+  },
+  "notas": [
+    "E2 lazo especulativo con Atisbo entrenado en p 0.02; epsilon calibrado por semilla en test p 0.0; lazo en Mundo(1000+s).",
+    "comparacion_e1: racha_media y tasa_malas_aceptadas de E1 valen 0 por construccion (todo LLM).",
+    "h1 aqui es con tau fijo 0.5; con tau conforme (alfa = 0.05) es E3.",
+    "bootstrap 1000 remuestreos semilla 0 sobre medias por episodio."
+  ],
+  "pasos_parcial": 0,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "truncada": false
+}
