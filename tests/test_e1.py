@@ -116,3 +116,23 @@ def test_e1_modo_sale_de_env_si_no_modo(tmp_path, monkeypatch):
     r = e1.main(["--seed", "0", "--n", "1", "--p", "0.0", "--max-llm-calls", "10", "--cache", str(tmp_path / "cache"), "--out", str(out)])
     data = json.loads(Path(r).read_text(encoding="utf-8"))
     assert data["llm"]["modo"] == "simulada"
+
+
+def test_e1_replay_dos_primeros_episodios(tmp_path, monkeypatch):
+    from atisbo.exp import e1
+    monkeypatch.delenv("META_API_KEY", raising=False)
+    fixtures = Path(__file__).parent / "fixtures" / "llm"
+    assert len(list(fixtures.glob("*.json"))) == 128
+    class TransporteProhibido:
+        def post(self, *args, **kwargs):
+            raise AssertionError("replay no debe tocar la red")
+    out = tmp_path / "E1.json"
+    r = e1.main(["--seed", "0", "--n", "2", "--p", "0.02", "--cache", str(fixtures), "--out", str(out), "--modo", "replay"], transporte=TransporteProhibido())
+    data = json.loads(Path(r).read_text(encoding="utf-8"))
+    esquema = json.loads(Path("atisbo/exp/schema_results.json").read_text(encoding="utf-8"))
+    validar(data, esquema)
+    assert data["llm"]["modo"] == "replay"
+    assert data["truncada"] is False
+    assert data["config"]["episodios_completados"] == 2
+    assert data["llamadas_llm"] == 128
+    assert len(list(fixtures.glob("*.json"))) == 128
