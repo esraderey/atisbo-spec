@@ -5,3 +5,4 @@ cache/
 *.pt
 __pycache__/
 demo/out/
+*.egg-info/

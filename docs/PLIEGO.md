@@ -14,7 +14,7 @@ Ejecución especulativa de acciones: **Atisbo** (modelo pequeño) propone las pr
 
 - Cuadrícula `W = 12 × H = 12`, celdas discretas. Objetos `n_obj ∈ [3, 6]`, tipo ∈ {rojo, verde, azul}; un **cubo** por tipo en posiciones fijas (esquinas); un bot.
 - Acciones `A = {ARRIBA, ABAJO, IZQ, DER, TOMAR, SOLTAR, ESPERAR}` (7). `TOMAR` solo si el bot está sobre un objeto libre y no carga nada; `SOLTAR` deposita en el cubo si el bot está sobre él, si no deja el objeto en la celda. Moverse contra el borde o contra un bloqueo = quedarse.
-- Episodio: **éxito** cuando todos los objetos están en su cubo; presupuesto 120 pasos.
+- Episodio: **éxito** cuando todos los objetos están en su cubo; presupuesto 160 pasos. Los estados iniciales se generan resolubles por la rutina en ≤ 120 pasos sin perturbaciones (si no, se descartan y se vuelven a sacar con el mismo `random.Random`).
 - **Política de rutina** (genera las trazas y define "acción buena"): objeto libre más cercano (Manhattan; desempate por `id` menor) → `TOMAR` → su cubo → `SOLTAR`. Movimiento: primero reduce `|dx|`, luego `|dy|`. Sin objetos libres y sin carga → `ESPERAR`.
 - **Perturbaciones** (probabilidad `p_perturb` por paso ∈ {0, 0.02, 0.05}): (i) mover un objeto libre a una celda vacía aleatoria; (ii) añadir un objeto (hasta `n_max = 6`); (iii) bloquear 5 pasos la celda frente al bot. La rutina reacciona en el paso siguiente al nuevo estado.
 - **Determinismo:** cada generador usa su `random.Random(seed)`; `generar(seed, n_episodios, p_perturb) -> list[Episodio]` con `Episodio = list[tuple[EstadoSim, Accion]]`; dos llamadas iguales → `pickle` byte a byte igual.
