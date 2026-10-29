@@ -9,6 +9,7 @@ dependencies = [
   "pillow",
   "imageio",
   "imageio-ffmpeg",
+  "torch",
 ]
 
 [project.optional-dependencies]

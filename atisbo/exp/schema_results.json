@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "results",
+  "description": "Sobre común de results (PLIEGO §8); lo propio de cada experimento con allOf/if/then.",
+  "type": "object",
+  "required": ["experimento", "fecha_utc", "commit", "seeds", "config", "metricas", "notas"],
+  "properties": {
+    "experimento": {"type": "string"},
+    "fecha_utc": {"type": "string"},
+    "commit": {"type": "string"},
+    "seeds": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+    "config": {"type": "object"},
+    "metricas": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["media", "ic95", "por_seed"],
+        "properties": {
+          "media": {"type": "number"},
+          "ic95": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+          "por_seed": {"type": "array", "items": {"type": "number"}},
+          "n": {"type": "integer", "minimum": 1},
+          "n_remuestreos": {"type": "integer", "minimum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "llm": {
+      "type": "object",
+      "required": ["modo"],
+      "properties": {
+        "modo": {"enum": ["api", "replay", "simulada"]},
+        "modelo": {"type": "string"},
+        "llamadas": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "notas": {"type": "array", "items": {"type": "string"}},
+    "entrenamiento": {"type": "object"},
+    "veredicto": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"experimento": {"const": "E0"}}},
+      "then": {
+        "required": ["entrenamiento", "veredicto"],
+        "properties": {
+          "veredicto": {"enum": ["go", "no-go"]},
+          "config": {
+            "type": "object",
+            "required": ["p_perturb", "n_episodios", "epocas", "k", "limite_entrenamiento_s"],
+            "properties": {
+              "p_perturb": {"type": "array", "items": {"type": "number"}, "minItems": 1},
+              "n_episodios": {"type": "integer", "minimum": 1},
+              "epocas": {"type": "integer", "minimum": 1},
+              "k": {"const": 8},
+              "limite_entrenamiento_s": {"type": "integer", "minimum": 1},
+              "rapido": {"type": "boolean"}
+            }
+          },
+          "entrenamiento": {
+            "type": "object",
+            "required": ["n_parametros", "limite_s", "cumple_limite", "tiempo_min_por_semilla", "tiempo_max_min"],
+            "properties": {
+              "n_parametros": {"type": "integer", "minimum": 1, "maximum": 1000000},
+              "limite_s": {"type": "integer", "minimum": 1},
+              "cumple_limite": {"type": "boolean"},
+              "tiempo_min_por_semilla": {"type": "array", "items": {"type": "integer"}},
+              "tiempo_max_min": {"type": "integer"}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"experimento": {"const": "E1"}}},
+      "then": {"required": ["llm"]}
+    },
+    {
+      "if": {"properties": {"experimento": {"const": "E2"}}},
+      "then": {"required": ["llm"]}
+    },
+    {
+      "if": {"properties": {"experimento": {"const": "E4"}}},
+      "then": {"required": ["llm"]}
+    },
+    {
+      "if": {"properties": {"experimento": {"const": "E5"}}},
+      "then": {"required": ["llm"]}
+    }
+  ]
+}
