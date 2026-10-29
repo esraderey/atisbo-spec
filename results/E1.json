@@ -1,0 +1,78 @@
+{
+  "commit": "2980ef771973acf887911392e77c06bdf58b2499",
+  "config": {
+    "episodios_completados": 20,
+    "epsilon": 1000000000.0,
+    "max_llm_calls": 3500,
+    "modelo": "muse-spark-1.3",
+    "n_episodios": 20,
+    "p_perturb": 0.02,
+    "seed": 0,
+    "tau": 0.5
+  },
+  "coste_estimado_usd": 2.36431475,
+  "exito_media": 1.0,
+  "experimento": "E1",
+  "fecha_utc": "2026-10-29T16:27:09Z",
+  "latencia_p50_ms": 1050.9758999978658,
+  "latencia_p95_ms": 1752.7696999968612,
+  "llamadas_llm": 1841,
+  "llm": {
+    "coste_estimado_usd": 2.36431475,
+    "llamadas": 1841,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "peticiones": 1841,
+    "tokens_entrada": 889278,
+    "tokens_salida": 294757
+  },
+  "llm_invalidas": 0,
+  "metricas": {
+    "exito": {
+      "ic95": [
+        1.0,
+        1.0
+      ],
+      "media": 1.0,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        1.0
+      ]
+    },
+    "latencia_ms": {
+      "ic95": [
+        1082.8481565796337,
+        1134.5256461183728
+      ],
+      "media": 1108.6823805178688,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        1108.6823805178688
+      ]
+    },
+    "llamadas_llm": {
+      "ic95": [
+        79.54875,
+        104.0025
+      ],
+      "media": 92.05,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        92.05
+      ]
+    }
+  },
+  "notas": [
+    "E1 baseline caro: PredictorNulo, LLM en cada paso.",
+    "Coste estimado con precios muse-spark-1.3: https://dev.meta.ai/docs/pricing-rate-limits",
+    "bootstrap 1000 remuestreos semilla 0 sobre medias por episodio."
+  ],
+  "pasos_parcial": 0,
+  "seeds": [
+    0
+  ],
+  "truncada": false
+}
