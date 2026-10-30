@@ -1,0 +1,403 @@
+{
+  "commit": "cc5ab497b2389a1ae250e0445ce15ebc47d87f24",
+  "comparacion_e1": {
+    "commit": "2980ef771973acf887911392e77c06bdf58b2499",
+    "exito_media": 1.0,
+    "latencia_ms_media": 1108.6823805178688,
+    "llamadas_llm_media": 92.05,
+    "modo": "api"
+  },
+  "config": {
+    "alphas": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "episodios_completados": 150,
+    "epocas": 10,
+    "epsilon_por_seed": [
+      2.288594589025908,
+      2.299893877969635,
+      2.2628917753096163,
+      2.380486175405133,
+      2.3158444234982265
+    ],
+    "max_llm_calls": 9000,
+    "modelo": "muse-spark-1.3",
+    "n": 10,
+    "n_cal": 40,
+    "n_pasos_cal_por_seed": [
+      3968,
+      3944,
+      3729,
+      3632,
+      3714
+    ],
+    "n_test": 40,
+    "n_trazas": 200,
+    "p_perturb": 0.02,
+    "rapido": false,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "seeds_evaluadas": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "semillas_calibracion": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004
+    ],
+    "semillas_mundo": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "semillas_test": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004
+    ]
+  },
+  "coste_estimado_usd": 9.31403275,
+  "experimento": "E3",
+  "fecha_utc": "2026-10-30T03:01:51Z",
+  "h1": false,
+  "h1_detalle": {
+    "delta_exito_pp": -36.0,
+    "ratio_llamadas": 0.4786529060293319,
+    "umbral_delta_pp": -5.0,
+    "umbral_ratio": 0.3
+  },
+  "llamadas_llm": 7064,
+  "llm": {
+    "coste_estimado_usd": 9.31403275,
+    "llamadas": 7064,
+    "llamadas_red": 5530,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "peticiones": 7064,
+    "tokens_entrada": 3483450,
+    "tokens_salida": 1166993
+  },
+  "llm_invalidas": 0,
+  "metricas": {
+    "exito@0.01": {
+      "ic95": [
+        1.0,
+        1.0
+      ],
+      "media": 1.0,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "exito@0.05": {
+      "ic95": [
+        0.5195000000000001,
+        0.76
+      ],
+      "media": 0.64,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.5,
+        0.5,
+        0.7,
+        0.6,
+        0.9
+      ]
+    },
+    "exito@0.1": {
+      "ic95": [
+        0.08,
+        0.28
+      ],
+      "media": 0.18,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.3,
+        0.1,
+        0.2,
+        0.2,
+        0.1
+      ]
+    },
+    "llamadas_llm@0.01": {
+      "ic95": [
+        54.4595,
+        63.5425
+      ],
+      "media": 59.1,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        65.7,
+        58.2,
+        54.9,
+        58.6,
+        58.1
+      ]
+    },
+    "llamadas_llm@0.05": {
+      "ic95": [
+        40.28,
+        47.882
+      ],
+      "media": 44.06,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        45.0,
+        43.5,
+        40.0,
+        47.7,
+        44.1
+      ]
+    },
+    "llamadas_llm@0.1": {
+      "ic95": [
+        35.32,
+        41.181
+      ],
+      "media": 38.12,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        39.5,
+        36.3,
+        38.9,
+        38.5,
+        37.4
+      ]
+    },
+    "riesgo_empirico@0.01": {
+      "ic95": [
+        0.07462796058316509,
+        0.11142580625970026
+      ],
+      "media": 0.09322608742417936,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.07150226209103229,
+        0.1159240135628197,
+        0.07457246097676602,
+        0.10656122104289859,
+        0.09757047944738025
+      ]
+    },
+    "riesgo_empirico@0.05": {
+      "ic95": [
+        0.18827281982550526,
+        0.23262025109024007
+      ],
+      "media": 0.21119931757932975,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.23470937598293645,
+        0.2043738349353526,
+        0.22599784566748427,
+        0.1863227734824831,
+        0.2045927578283923
+      ]
+    },
+    "riesgo_empirico@0.1": {
+      "ic95": [
+        0.3306052533786131,
+        0.392366165000862
+      ],
+      "media": 0.36193659529823025,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.40294219927834246,
+        0.3759478476821192,
+        0.3665943649373882,
+        0.28840909090909095,
+        0.3757894736842105
+      ]
+    },
+    "riesgo_trazas@0.01": {
+      "ic95": [
+        0.007632020903013274,
+        0.013007508228943577
+      ],
+      "media": 0.010184627734296608,
+      "n": 200,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.007688364941055869,
+        0.008119766556711495,
+        0.011284944857655809,
+        0.009780534351145039,
+        0.014007003501750876
+      ]
+    },
+    "riesgo_trazas@0.05": {
+      "ic95": [
+        0.04529483444243413,
+        0.05540822874359094
+      ],
+      "media": 0.0504716034517359,
+      "n": 200,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.057662737057919015,
+        0.03907637655417407,
+        0.058733008463708644,
+        0.042461832061068704,
+        0.05502751375687844
+      ]
+    },
+    "riesgo_trazas@0.1": {
+      "ic95": [
+        0.09319159077009115,
+        0.10628919395809423
+      ],
+      "media": 0.10004013646397752,
+      "n": 200,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.0999487442337263,
+        0.0898249175336209,
+        0.11208002051808157,
+        0.09518129770992366,
+        0.10355177588794397
+      ]
+    }
+  },
+  "notas": [
+    "La garantia E[L] <= alpha de CRC es exacta si los pasos son intercambiables; aqui calibracion y test solo son intercambiables por episodio (los pasos de un episodio dependen entre si), asi que es aproximada y mejora con el numero de episodios de calibracion (n_cal).",
+    "El ic95 de riesgo_trazas fija lambda_hat, no incluye la variabilidad de la calibracion.",
+    "La garantia de CRC es para el test intercambiable (riesgo_trazas); el lazo tiene otra distribucion de estados y ademas ejecuta las acciones j = 1 y 2 del bloque, que la calibracion no cubre, asi que riesgo_empirico puede pasar de alfa: se reporta, no se fuerza.",
+    "El coste estimado cuenta tambien las llamadas servidas desde la cache.",
+    "bootstrap 1000 remuestreos semilla 0 sobre medias por episodio; riesgo_trazas remuestrea episodios de test con reemplazo y recalcula el cociente."
+  ],
+  "pasos_parcial": 0,
+  "por_alpha": [
+    {
+      "acepta_nada": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "alpha": 0.01,
+      "exito": 1.0,
+      "lambda": [
+        0.26913688532600544,
+        0.33338333234018913,
+        0.3864159682907756,
+        0.4213109539291967,
+        0.4148430928635757
+      ],
+      "llamadas_llm": 59.1,
+      "n_episodios": 50,
+      "pasos": 100.36,
+      "riesgo_empirico": 0.09322608742417936,
+      "riesgo_trazas": 0.010184627734296608,
+      "tasa_condicional": 0.24188075618031993,
+      "tau": [
+        0.7308631146739946,
+        0.6666166676598109,
+        0.6135840317092244,
+        0.5786890460708033,
+        0.5851569071364243
+      ]
+    },
+    {
+      "acepta_nada": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "alpha": 0.05,
+      "exito": 0.64,
+      "lambda": [
+        0.6988225079184294,
+        0.6730190935426457,
+        0.7227215468977213,
+        0.6980242872759088,
+        0.7016518758688346
+      ],
+      "llamadas_llm": 44.06,
+      "n_episodios": 50,
+      "pasos": 127.3,
+      "riesgo_empirico": 0.21119931757932975,
+      "riesgo_trazas": 0.0504716034517359,
+      "tasa_condicional": 0.34142239308024985,
+      "tau": [
+        0.30117749208157063,
+        0.32698090645735434,
+        0.2772784531022787,
+        0.3019757127240912,
+        0.2983481241311654
+      ]
+    },
+    {
+      "acepta_nada": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "alpha": 0.1,
+      "exito": 0.18,
+      "lambda": [
+        0.8307532586068075,
+        0.8410317702929768,
+        0.8407520428331057,
+        0.8257263684686016,
+        0.8294211023647986
+      ],
+      "llamadas_llm": 38.12,
+      "n_episodios": 50,
+      "pasos": 151.0,
+      "riesgo_empirico": 0.36193659529823025,
+      "riesgo_trazas": 0.10004013646397752,
+      "tasa_condicional": 0.4953933380581148,
+      "tau": [
+        0.1692467413931925,
+        0.15896822970702318,
+        0.15924795716689433,
+        0.1742736315313984,
+        0.1705788976352014
+      ]
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "truncada": false
+}
