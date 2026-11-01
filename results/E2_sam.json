@@ -1,0 +1,282 @@
+{
+  "commit": "c74546db974962771e94f019aaecbea370cd1f11",
+  "comparacion_e1": {
+    "commit": "2980ef771973acf887911392e77c06bdf58b2499",
+    "exito_media": 1.0,
+    "latencia_ms_media": 1108.6823805178688,
+    "llamadas_llm_media": 92.05,
+    "modo": "api"
+  },
+  "comparacion_e2": {
+    "commit": "92368b2066acc11d51b4b3742e5c8110483d739c",
+    "comparable": true,
+    "exito_media": 0.9,
+    "llamadas_llm_media": 47.5,
+    "modo": "api"
+  },
+  "config": {
+    "episodios_completados": 20,
+    "epocas": 10,
+    "epsilon_por_seed": [
+      2.288594589025908,
+      2.299893877969635
+    ],
+    "estado": "sam",
+    "max_llm_calls": 3500,
+    "max_sam_calls": 4000,
+    "modelo": "muse-spark-1.3",
+    "n_episodios_por_seed": 10,
+    "n_trazas": 200,
+    "p_perturb": 0.02,
+    "prompt_sam": "colored square",
+    "rapido": false,
+    "seeds": [
+      0,
+      1
+    ],
+    "seeds_evaluadas": [
+      0,
+      1
+    ],
+    "semillas_mundo": [
+      1000,
+      1001
+    ],
+    "tau": 0.5
+  },
+  "coste_estimado_usd": 7.298716000000001,
+  "exito_media": 0.75,
+  "experimento": "E2",
+  "fecha_utc": "2026-11-01T02:57:56Z",
+  "h1": false,
+  "h1_detalle": {
+    "delta_exito_pp": -25.0,
+    "ratio_llamadas": 0.5768604019554591,
+    "umbral_delta_pp": -5.0,
+    "umbral_ratio": 0.3
+  },
+  "llamadas_llm": 1062,
+  "llm": {
+    "coste_estimado_usd": 1.381216,
+    "llamadas": 1062,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "peticiones": 1062,
+    "tokens_entrada": 519180,
+    "tokens_salida": 172292
+  },
+  "llm_invalidas": 0,
+  "metricas": {
+    "coincidencia_bot": {
+      "ic95": [
+        1.0,
+        1.0
+      ],
+      "media": 1.0,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        1.0,
+        1.0
+      ]
+    },
+    "coincidencia_objetos": {
+      "ic95": [
+        0.9536280355820979,
+        0.9889168156240272
+      ],
+      "media": 0.9747916765908812,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9871300747497485,
+        0.962453278432014
+      ]
+    },
+    "coincidencia_todo": {
+      "ic95": [
+        0.9523698231489532,
+        0.987202577423969
+      ],
+      "media": 0.9732388815598252,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9871300747497485,
+        0.959347688369902
+      ]
+    },
+    "exito": {
+      "ic95": [
+        0.55,
+        0.9
+      ],
+      "media": 0.75,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9,
+        0.6
+      ]
+    },
+    "latencia_ms": {
+      "ic95": [
+        405.8173962695411,
+        476.55790255102886
+      ],
+      "media": 440.8340253542633,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        483.44994190921386,
+        398.21810879931263
+      ]
+    },
+    "llamadas_llm": {
+      "ic95": [
+        47.29625,
+        59.10125
+      ],
+      "media": 53.1,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        53.4,
+        52.8
+      ]
+    },
+    "llamadas_por_sorpresa": {
+      "ic95": [
+        0.34875000000000006,
+        1.7
+      ],
+      "media": 0.95,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        1.0,
+        0.9
+      ]
+    },
+    "malas_aceptadas": {
+      "ic95": [
+        13.04875,
+        26.85125
+      ],
+      "media": 19.45,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        17.5,
+        21.4
+      ]
+    },
+    "malas_aceptadas_real": {
+      "ic95": [
+        13.05,
+        26.85125
+      ],
+      "media": 19.5,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        17.6,
+        21.4
+      ]
+    },
+    "pasos": {
+      "ic95": [
+        101.14500000000001,
+        132.20125
+      ],
+      "media": 117.35,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        110.2,
+        124.5
+      ]
+    },
+    "pasos_ciegos": {
+      "ic95": [
+        0.0,
+        0.0
+      ],
+      "media": 0.0,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.0,
+        0.0
+      ]
+    },
+    "racha_media": {
+      "ic95": [
+        6.4626842757936505,
+        7.986471478174603
+      ],
+      "media": 7.213422619047618,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        7.237638888888888,
+        7.18920634920635
+      ]
+    },
+    "tasa_malas_aceptadas": {
+      "ic95": [
+        0.11343076684065298,
+        0.19252581363728874
+      ],
+      "media": 0.152143696619508,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.15206652024784434,
+        0.15222087299117165
+      ]
+    },
+    "tasa_malas_aceptadas_real": {
+      "ic95": [
+        0.11384422391072278,
+        0.1934085500134185
+      ],
+      "media": 0.15300576558502524,
+      "n": 20,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.15379065817887883,
+        0.15222087299117165
+      ]
+    }
+  },
+  "notas": [
+    "E2 lazo especulativo con Atisbo entrenado en p 0.02; epsilon calibrado por semilla en test p 0.0; lazo en Mundo(1000+s).",
+    "comparacion_e1: racha_media y tasa_malas_aceptadas de E1 valen 0 por construccion (todo LLM).",
+    "h1 aqui es con tau fijo 0.5; con tau conforme (alfa = 0.05) es E3.",
+    "bootstrap 1000 remuestreos semilla 0 sobre medias por episodio.",
+    "malas_aceptadas mide contra la rutina percibida y malas_aceptadas_real contra la real.",
+    "estado sam: el lazo solo ve lo que reconstruye SAM desde cada frame.",
+    "estado sam: exito se mide en el mundo real, no en lo percibido.",
+    "estado sam: un frame sin bot fuerza LLM al empezar un bloque, y dentro de un bloque lo decide la sorpresa.",
+    "estado sam: el coste suma LLM y SAM y cuenta lo servido de caché."
+  ],
+  "pasos_parcial": 0,
+  "sam": {
+    "coste_estimado_usd": 5.9175,
+    "exitos_no_detectados": 0,
+    "falsos_exitos": 0,
+    "imagenes": 2367,
+    "latencia_ms_media": 650.9576657795006,
+    "llamadas_red": 2171,
+    "modelo": "sam-3.1",
+    "modo": "api",
+    "peticiones": 2367,
+    "prompt": "colored square"
+  },
+  "seeds": [
+    0,
+    1
+  ],
+  "truncada": false
+}
