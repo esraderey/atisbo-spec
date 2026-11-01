@@ -1,0 +1,921 @@
+{
+  "celdas": [
+    {
+      "cache_miss": 0,
+      "config": {
+        "epsilon_por_seed": [
+          2.288594589025908,
+          2.299893877969635,
+          2.2628917753096163,
+          2.380486175405133,
+          2.3158444234982265
+        ],
+        "horizonte": 3,
+        "p": 0.02,
+        "sin_sorpresa": false,
+        "tau": 0.5
+      },
+      "metricas": {
+        "exito": {
+          "ic95": [
+            0.9,
+            1.0
+          ],
+          "media": 0.96,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.9,
+            0.9,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "llamadas_llm": {
+          "ic95": [
+            45.419000000000004,
+            53.420500000000004
+          ],
+          "media": 49.26,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            48.9,
+            46.1,
+            43.4,
+            55.1,
+            52.8
+          ]
+        },
+        "llamadas_por_sorpresa": {
+          "ic95": [
+            0.06,
+            0.52
+          ],
+          "media": 0.26,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.6,
+            0.2,
+            0.4,
+            0.1,
+            0.0
+          ]
+        },
+        "malas_aceptadas": {
+          "ic95": [
+            10.2395,
+            15.84
+          ],
+          "media": 13.04,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            13.6,
+            14.9,
+            9.3,
+            17.2,
+            10.2
+          ]
+        },
+        "pasos": {
+          "ic95": [
+            97.034,
+            112.5605
+          ],
+          "media": 104.96,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            104.6,
+            101.4,
+            96.5,
+            116.4,
+            105.9
+          ]
+        },
+        "racha_media": {
+          "ic95": [
+            7.349777464202464,
+            8.299358062770564
+          ],
+          "media": 7.811449217449217,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            7.8291666666666675,
+            7.452878787878788,
+            8.376575091575091,
+            7.495530303030303,
+            7.903095238095238
+          ]
+        },
+        "tasa_malas_aceptadas": {
+          "ic95": [
+            0.09407041620713065,
+            0.1379865851778117
+          ],
+          "media": 0.11616111562988857,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.12216079220279856,
+            0.13031855531326525,
+            0.09428935534202725,
+            0.14024481279079132,
+            0.0937920625005605
+          ]
+        }
+      },
+      "n_episodios": 50,
+      "nombre": "base",
+      "seeds_evaluadas": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "cache_miss": 0,
+      "config": {
+        "epsilon_por_seed": [
+          2.288594589025908,
+          2.299893877969635,
+          2.2628917753096163,
+          2.380486175405133,
+          2.3158444234982265
+        ],
+        "horizonte": 3,
+        "p": 0.02,
+        "sin_sorpresa": true,
+        "tau": 0.5
+      },
+      "metricas": {
+        "exito": {
+          "ic95": [
+            0.9,
+            1.0
+          ],
+          "media": 0.96,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.9,
+            1.0,
+            1.0,
+            0.9,
+            1.0
+          ]
+        },
+        "llamadas_llm": {
+          "ic95": [
+            45.499,
+            52.9605
+          ],
+          "media": 49.26,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            46.8,
+            46.0,
+            42.9,
+            57.8,
+            52.8
+          ]
+        },
+        "llamadas_por_sorpresa": {
+          "ic95": [
+            0.0,
+            0.0
+          ],
+          "media": 0.0,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "malas_aceptadas": {
+          "ic95": [
+            11.32,
+            17.62
+          ],
+          "media": 14.5,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            15.7,
+            16.7,
+            10.6,
+            19.3,
+            10.2
+          ]
+        },
+        "pasos": {
+          "ic95": [
+            98.775,
+            114.34
+          ],
+          "media": 106.64,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            104.6,
+            105.5,
+            94.2,
+            123.0,
+            105.9
+          ]
+        },
+        "racha_media": {
+          "ic95": [
+            7.577900270562771,
+            8.500132738095237
+          ],
+          "media": 8.049003607503607,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            8.3325,
+            7.969891774891775,
+            8.222857142857142,
+            7.816673881673881,
+            7.903095238095238
+          ]
+        },
+        "tasa_malas_aceptadas": {
+          "ic95": [
+            0.1022625689759174,
+            0.15173237098312753
+          ],
+          "media": 0.12833364073715128,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.13540706085951498,
+            0.14824844440322438,
+            0.10816000570069498,
+            0.15606063022176153,
+            0.0937920625005605
+          ]
+        }
+      },
+      "n_episodios": 50,
+      "nombre": "sin_sorpresa",
+      "seeds_evaluadas": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "cache_miss": 0,
+      "config": {
+        "epsilon_por_seed": [
+          2.288594589025908,
+          2.299893877969635,
+          2.2628917753096163,
+          2.380486175405133,
+          2.3158444234982265
+        ],
+        "horizonte": 1,
+        "p": 0.02,
+        "sin_sorpresa": false,
+        "tau": 0.5
+      },
+      "metricas": {
+        "exito": {
+          "ic95": [
+            0.9,
+            1.0
+          ],
+          "media": 0.96,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.9,
+            0.9,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "llamadas_llm": {
+          "ic95": [
+            52.3585,
+            61.321
+          ],
+          "media": 56.88,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            55.8,
+            59.5,
+            48.7,
+            61.6,
+            58.8
+          ]
+        },
+        "llamadas_por_sorpresa": {
+          "ic95": [
+            0.0,
+            0.0
+          ],
+          "media": 0.0,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "malas_aceptadas": {
+          "ic95": [
+            9.0595,
+            13.482999999999997
+          ],
+          "media": 11.3,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            11.2,
+            17.0,
+            8.3,
+            11.9,
+            8.1
+          ]
+        },
+        "pasos": {
+          "ic95": [
+            96.136,
+            111.92
+          ],
+          "media": 104.02,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            104.7,
+            116.8,
+            89.1,
+            113.2,
+            96.3
+          ]
+        },
+        "racha_media": {
+          "ic95": [
+            5.481218434343434,
+            6.307911793761793
+          ],
+          "media": 5.8888707403707405,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            5.855656565656566,
+            5.684411421911422,
+            6.1311904761904765,
+            5.890238095238095,
+            5.882857142857143
+          ]
+        },
+        "tasa_malas_aceptadas": {
+          "ic95": [
+            0.0855323442274637,
+            0.12002185082910634
+          ],
+          "media": 0.10324156521093551,
+          "n": 50,
+          "n_remuestreos": 1000,
+          "por_seed": [
+            0.10227225143167876,
+            0.13840243059176657,
+            0.0857842214071827,
+            0.10756341942367972,
+            0.0821855032003698
+          ]
+        }
+      },
+      "n_episodios": 50,
+      "nombre": "horizonte_1",
+      "seeds_evaluadas": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "commit": "91a9c2f21e54b58c11265eb67b36a978e35308b5",
+  "config": {
+    "cache": "cache/llm",
+    "epocas": 10,
+    "max_llm_calls": 12000,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "n_episodios_por_seed": 10,
+    "n_trazas": 200,
+    "rapido": false,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "semillas_mundo": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ]
+  },
+  "experimento": "E4",
+  "fecha_utc": "2026-11-01T14:51:22Z",
+  "llm": {
+    "cache_miss": 0,
+    "coste_estimado_usd": 9.97692525,
+    "llamadas": 7770,
+    "llamadas_red": 2204,
+    "llm_invalidas": 0,
+    "modelo": "muse-spark-1.3",
+    "modo": "api",
+    "peticiones": 7770,
+    "tokens_entrada": 3821052,
+    "tokens_salida": 1223673
+  },
+  "metricas": {
+    "exito@base": {
+      "ic95": [
+        0.9,
+        1.0
+      ],
+      "media": 0.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9,
+        0.9,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "exito@horizonte_1": {
+      "ic95": [
+        0.9,
+        1.0
+      ],
+      "media": 0.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9,
+        0.9,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "exito@sin_sorpresa": {
+      "ic95": [
+        0.9,
+        1.0
+      ],
+      "media": 0.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.9,
+        1.0,
+        1.0,
+        0.9,
+        1.0
+      ]
+    },
+    "llamadas_llm@base": {
+      "ic95": [
+        45.419000000000004,
+        53.420500000000004
+      ],
+      "media": 49.26,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        48.9,
+        46.1,
+        43.4,
+        55.1,
+        52.8
+      ]
+    },
+    "llamadas_llm@horizonte_1": {
+      "ic95": [
+        52.3585,
+        61.321
+      ],
+      "media": 56.88,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        55.8,
+        59.5,
+        48.7,
+        61.6,
+        58.8
+      ]
+    },
+    "llamadas_llm@sin_sorpresa": {
+      "ic95": [
+        45.499,
+        52.9605
+      ],
+      "media": 49.26,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        46.8,
+        46.0,
+        42.9,
+        57.8,
+        52.8
+      ]
+    },
+    "llamadas_por_sorpresa@base": {
+      "ic95": [
+        0.06,
+        0.52
+      ],
+      "media": 0.26,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.6,
+        0.2,
+        0.4,
+        0.1,
+        0.0
+      ]
+    },
+    "llamadas_por_sorpresa@horizonte_1": {
+      "ic95": [
+        0.0,
+        0.0
+      ],
+      "media": 0.0,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "llamadas_por_sorpresa@sin_sorpresa": {
+      "ic95": [
+        0.0,
+        0.0
+      ],
+      "media": 0.0,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "malas_aceptadas@base": {
+      "ic95": [
+        10.2395,
+        15.84
+      ],
+      "media": 13.04,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        13.6,
+        14.9,
+        9.3,
+        17.2,
+        10.2
+      ]
+    },
+    "malas_aceptadas@horizonte_1": {
+      "ic95": [
+        9.0595,
+        13.482999999999997
+      ],
+      "media": 11.3,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        11.2,
+        17.0,
+        8.3,
+        11.9,
+        8.1
+      ]
+    },
+    "malas_aceptadas@sin_sorpresa": {
+      "ic95": [
+        11.32,
+        17.62
+      ],
+      "media": 14.5,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        15.7,
+        16.7,
+        10.6,
+        19.3,
+        10.2
+      ]
+    },
+    "pasos@base": {
+      "ic95": [
+        97.034,
+        112.5605
+      ],
+      "media": 104.96,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        104.6,
+        101.4,
+        96.5,
+        116.4,
+        105.9
+      ]
+    },
+    "pasos@horizonte_1": {
+      "ic95": [
+        96.136,
+        111.92
+      ],
+      "media": 104.02,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        104.7,
+        116.8,
+        89.1,
+        113.2,
+        96.3
+      ]
+    },
+    "pasos@sin_sorpresa": {
+      "ic95": [
+        98.775,
+        114.34
+      ],
+      "media": 106.64,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        104.6,
+        105.5,
+        94.2,
+        123.0,
+        105.9
+      ]
+    },
+    "racha_media@base": {
+      "ic95": [
+        7.349777464202464,
+        8.299358062770564
+      ],
+      "media": 7.811449217449217,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        7.8291666666666675,
+        7.452878787878788,
+        8.376575091575091,
+        7.495530303030303,
+        7.903095238095238
+      ]
+    },
+    "racha_media@horizonte_1": {
+      "ic95": [
+        5.481218434343434,
+        6.307911793761793
+      ],
+      "media": 5.8888707403707405,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        5.855656565656566,
+        5.684411421911422,
+        6.1311904761904765,
+        5.890238095238095,
+        5.882857142857143
+      ]
+    },
+    "racha_media@sin_sorpresa": {
+      "ic95": [
+        7.577900270562771,
+        8.500132738095237
+      ],
+      "media": 8.049003607503607,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        8.3325,
+        7.969891774891775,
+        8.222857142857142,
+        7.816673881673881,
+        7.903095238095238
+      ]
+    },
+    "tasa_malas_aceptadas@base": {
+      "ic95": [
+        0.09407041620713065,
+        0.1379865851778117
+      ],
+      "media": 0.11616111562988857,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.12216079220279856,
+        0.13031855531326525,
+        0.09428935534202725,
+        0.14024481279079132,
+        0.0937920625005605
+      ]
+    },
+    "tasa_malas_aceptadas@horizonte_1": {
+      "ic95": [
+        0.0855323442274637,
+        0.12002185082910634
+      ],
+      "media": 0.10324156521093551,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.10227225143167876,
+        0.13840243059176657,
+        0.0857842214071827,
+        0.10756341942367972,
+        0.0821855032003698
+      ]
+    },
+    "tasa_malas_aceptadas@sin_sorpresa": {
+      "ic95": [
+        0.1022625689759174,
+        0.15173237098312753
+      ],
+      "media": 0.12833364073715128,
+      "n": 50,
+      "n_remuestreos": 1000,
+      "por_seed": [
+        0.13540706085951498,
+        0.14824844440322438,
+        0.10816000570069498,
+        0.15606063022176153,
+        0.0937920625005605
+      ]
+    }
+  },
+  "notas": [
+    "E4 ablaciones sobre E2: base es E2 con tau fija 0.5, sorpresa y horizonte 3.",
+    "El coste estimado cuenta tambien lo servido desde la cache.",
+    "cache_miss cuenta episodios omitidos en replay por falta de cache; no se improvisa politica.",
+    "bootstrap 1000 remuestreos semilla 0 sobre medias por episodio y por celda.",
+    "los episodios truncados no entran en las metricas pero si en llamadas, tokens y coste.",
+    "en sin_sorpresa el epsilon efectivo es inf aunque epsilon_por_seed muestre el calibrado.",
+    "llamadas_por_sorpresa vale 0 por construccion en sin_sorpresa y en horizonte_1.",
+    "las celdas comparten estados iniciales pero no van pareadas, porque las perturbaciones divergen tras el primer episodio de distinta longitud."
+  ],
+  "pasos_parcial": 0,
+  "referencias": {
+    "comparable": true,
+    "conforme": [
+      {
+        "alpha": 0.01,
+        "commit": "cc5ab497b2389a1ae250e0445ce15ebc47d87f24",
+        "exito": 1.0,
+        "exito_ic95": [
+          1.0,
+          1.0
+        ],
+        "llamadas_llm": 59.1,
+        "llamadas_llm_ic95": [
+          54.4595,
+          63.5425
+        ],
+        "modo": "api",
+        "n_episodios": 50,
+        "riesgo_empirico": 0.09322608742417936,
+        "seeds_evaluadas": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "alpha": 0.05,
+        "commit": "cc5ab497b2389a1ae250e0445ce15ebc47d87f24",
+        "exito": 0.64,
+        "exito_ic95": [
+          0.5195000000000001,
+          0.76
+        ],
+        "llamadas_llm": 44.06,
+        "llamadas_llm_ic95": [
+          40.28,
+          47.882
+        ],
+        "modo": "api",
+        "n_episodios": 50,
+        "riesgo_empirico": 0.21119931757932975,
+        "seeds_evaluadas": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "commit": "cc5ab497b2389a1ae250e0445ce15ebc47d87f24",
+        "exito": 0.18,
+        "exito_ic95": [
+          0.08,
+          0.28
+        ],
+        "llamadas_llm": 38.12,
+        "llamadas_llm_ic95": [
+          35.32,
+          41.181
+        ],
+        "modo": "api",
+        "n_episodios": 50,
+        "riesgo_empirico": 0.36193659529823025,
+        "seeds_evaluadas": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "e_sam": {
+      "coincidencia_todo": 0.9732388815598252,
+      "commit": "c74546db974962771e94f019aaecbea370cd1f11",
+      "comparacion_e2": {
+        "commit": "92368b2066acc11d51b4b3742e5c8110483d739c",
+        "comparable": true,
+        "exito_media": 0.9,
+        "llamadas_llm_media": 47.5,
+        "modo": "api"
+      },
+      "exito": 0.75,
+      "exito_ic95": [
+        0.55,
+        0.9
+      ],
+      "llamadas_llm": 53.1,
+      "llamadas_llm_ic95": [
+        47.29625,
+        59.10125
+      ],
+      "modo": "api",
+      "n_episodios": 20,
+      "seeds_evaluadas": [
+        0,
+        1
+      ]
+    }
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "truncada": false
+}
