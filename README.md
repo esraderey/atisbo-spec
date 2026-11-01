@@ -4,7 +4,7 @@ Un modelo pequeño aprende de trazas a predecir las próximas acciones de un age
 
 ## Built during the hackathon
 
-El código del proyecto (`atisbo/`, `demo/` y `tests/`) se escribió durante el hackathon de Meta (27 oct – 4 nov 2026). `.agents/` y `AGENTS.md` son habilidades de proceso, con gates y vetos, creadas o adaptadas para Muse a partir de lo aprendido usando otras IAs. No son parte del producto, y dos de sus scripts, `banco.py` y `vetos.py`, son anteriores al hackathon.
+Antes del evento existía un proyecto propio con el mismo nombre: un modelo pequeño en numpy que anticipa hacia dónde se mueve un agente. Aquí se reconstruyó la idea desde cero para otra tarea, predecir las próximas acciones del agente, sin reutilizar su código. El código del proyecto (`atisbo/`, `demo/` y `tests/`) se escribió durante el hackathon de Meta (27 oct – 4 nov 2026). `.agents/` y `AGENTS.md` son habilidades de proceso, con gates y vetos, creadas o adaptadas para Muse a partir de lo aprendido usando otras IAs. No son parte del producto, y dos de sus scripts, `banco.py` y `vetos.py`, son anteriores al hackathon.
 
 ## How Meta models are used
 
