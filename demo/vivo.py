@@ -27,7 +27,7 @@ from atisbo.env.perturbaciones import celdas_vacias
 from atisbo.env.render import BLOQUEO_COLOR, BOT_COLOR, CELL, COLORES, render
 from atisbo.env.trazas import PRESUPUESTO
 from atisbo.lazo import Mundo, correr_episodio
-from atisbo.meta_api import MODELO, ClienteMeta, MetaAPIError
+from atisbo.meta_api import MODELO, ClienteMeta
 from atisbo.politica_llm import PoliticaLLM, PoliticaSimulada
 from atisbo.sam import MODELO_SAM, PROMPT, ClienteSam, MundoSam, PredictorCiego, mascaras_por_frame
 
