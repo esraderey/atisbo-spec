@@ -115,8 +115,8 @@ def metricas_desde_registro(registro) -> dict:
     return {"racha_media": float(racha_media), "malas_aceptadas": int(malas), "tasa_malas_aceptadas": float(tasa), "llamadas_por_sorpresa": int(por_sorpresa)}
 
 
-def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None):
-    """Un episodio con el lazo 5 (LLM si conf < tau; si no, bloque Atisbo de 3)."""
+def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None, horizonte=3):
+    """Un episodio con el lazo 5 (LLM si conf < tau; si no, bloque Atisbo de hasta horizonte acciones)."""
     if registro is None:
         registro = []
     n0 = len(registro)
@@ -142,7 +142,7 @@ def correr_episodio(predictor, politica, mundo, tau, epsilon, registro=None):
             historia.append(s)
             pasos += 1
             continue
-        for j in range(3):
+        for j in range(int(horizonte)):
             if pasos >= PRESUPUESTO or es_exito(s):
                 break
             if j > 0:

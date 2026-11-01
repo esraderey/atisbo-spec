@@ -145,9 +145,16 @@ class ClienteMeta:
         intento = 0
         latencia_ms = 0.0
         while True:
-            t0 = time.perf_counter()
-            status, cab_resp, bruto = self._transporte.post(BASE_URL, cabeceras, cuerpo)
-            dt_ms = (time.perf_counter() - t0) * 1000.0
+            try:
+                t0 = time.perf_counter()
+                status, cab_resp, bruto = self._transporte.post(BASE_URL, cabeceras, cuerpo)
+                dt_ms = (time.perf_counter() - t0) * 1000.0
+            except (urllib.error.URLError, TimeoutError, ConnectionError) as exc:
+                if intento < MAX_INTENTOS - 1:
+                    self._dormir(2 ** intento + self._rng.random())
+                    intento += 1
+                    continue
+                raise MetaAPIError("red Meta: " + str(exc)) from exc
             if status == 200:
                 latencia_ms = dt_ms
                 break
