@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATISBO-SPEC live console</title>
+<style>
+:root{--fondo:#0d1117;--panel:#18202a;--linea:#343c48;--texto:#e8eef4;--gris:#929caa;--verde:#3fb950;--rojo:#f85149;--ambar:#e8b848;--azul:#58a6ff}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.4 "Segoe UI",system-ui,sans-serif;display:flex;flex-direction:column;padding:14px 18px;gap:12px}
+header{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+h1{margin:0;font-size:26px}
+#modo{padding:4px 12px;border-radius:999px;font-weight:600;font-size:15px;background:#3a3f4a}
+#modo.vivo{background:#1f6b35}
+#modo.sim{background:#7a5a12}
+.sub{color:var(--gris)}
+.acciones{margin-left:auto;display:flex;gap:10px}
+button{background:var(--panel);color:var(--texto);border:1px solid var(--linea);border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer}
+button:hover:not(:disabled){border-color:var(--azul)}
+button:disabled{opacity:.45;cursor:default}
+#perturbar{background:#6b4e12;border-color:var(--ambar)}
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,2.6fr) minmax(0,.9fr) minmax(0,1.1fr);gap:14px}
+.panel{background:var(--panel);border-radius:12px;padding:12px;min-height:0;display:flex;flex-direction:column;gap:8px}
+h2{margin:0;font-size:15px;color:var(--gris);font-weight:600}
+.vistas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vistas img{width:100%;aspect-ratio:1;image-rendering:pixelated;display:block;background:#fff;border-radius:6px}
+.marco{position:relative}
+#aro{display:none;position:absolute;width:calc(100% / 12);height:calc(100% / 12);outline:4px solid var(--ambar);outline-offset:3px;border-radius:50%}
+#quien{border-radius:10px;padding:14px;text-align:center;font-size:22px;line-height:1.25;font-weight:600;background:#3a3f4a}
+#quien.atisbo{background:#267c3a}
+#quien.llm{background:#b02c28}
+.barra{position:relative;height:18px;border-radius:9px;background:var(--fondo);overflow:hidden}
+.barra i{position:absolute;inset:0 auto 0 0;width:0;background:var(--verde)}
+.barra::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--texto)}
+.fila{display:flex;justify-content:space-between;gap:8px}
+.cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cifra b{display:block;font-size:38px;line-height:1.1;font-weight:600}
+.etq{color:var(--gris);font-size:14px}
+#nllm{color:var(--rojo)}
+#aviso{min-height:46px;color:var(--ambar);font-size:18px;font-weight:600}
+#registro{flex:1;min-height:0;overflow:hidden;font:14px/1.35 "Cascadia Mono",Consolas,monospace;display:flex;flex-direction:column;gap:6px}
+.ll{border-left:3px solid var(--rojo);padding:2px 0 2px 8px;word-break:break-all}
+.ll.sam{border-color:var(--azul)}
+.ll b{font-weight:700}
+.ll span{color:var(--gris)}
+#linea{height:22px;width:100%;display:block;border-radius:5px;background:var(--fondo)}
+.ok{color:var(--verde)}
+.mal{color:var(--rojo)}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATISBO-SPEC</h1>
+  <span id="modo">starting</span>
+  <span class="sub" id="nota">Simulated 12 × 12 world.</span>
+  <div class="acciones">
+    <button id="empezar" type="button">Start episode</button>
+    <button id="perturbar" type="button" disabled>Move the closest object</button>
+  </div>
+</header>
+<main>
+  <section class="panel">
+    <div class="vistas">
+      <div><h2 id="t-frame">Frame sent to SAM 3.1</h2><div class="marco"><img id="frame" alt="World frame"><i id="aro"></i></div></div>
+      <div><h2 id="t-mascaras">Masks returned by SAM 3.1</h2><img id="mascaras" alt="Segmentation masks"></div>
+    </div>
+    <div class="etq">Mask colors: violet bins, gold bot, cyan objects</div>
+    <h2>Who decided each step</h2>
+    <canvas id="linea" width="1000" height="22"></canvas>
+    <div class="etq"><span class="ok">■</span> Atisbo, no call &nbsp; <span class="mal">■</span> <span id="t-llm">Muse Spark</span></div>
+    <div class="cifras">
+      <div class="cifra"><span class="etq" id="t-nllm">Muse Spark decisions</span><b id="nllm">0</b></div>
+      <div class="cifra"><span class="etq">Steps</span><b id="npasos">0</b></div>
+      <div class="cifra"><span class="etq">Steps with no call</span><b id="nevita">0</b></div>
+      <div class="cifra"><span class="etq" id="t-nsam">SAM 3.1 images</span><b id="nsam">0</b></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div id="quien">Waiting</div>
+    <div>
+      <div class="fila"><span>Atisbo's confidence</span><strong id="conf">–</strong></div>
+      <div class="barra"><i id="barra"></i></div>
+      <div class="etq">Line: threshold τ = 0.5</div>
+    </div>
+    <div class="etq" id="pred"></div>
+    <div id="aviso"></div>
+  </section>
+  <section class="panel">
+    <h2 id="t-registro">Calls to api.meta.ai, newest first</h2>
+    <div id="registro"></div>
+  </section>
+</main>
+<script>
+(function () {
+  const $ = (i) => document.getElementById(i);
+  const NOMBRES = { ARRIBA: "UP", ABAJO: "DOWN", IZQ: "LEFT", DER: "RIGHT", TOMAR: "PICK", SOLTAR: "DROP", ESPERAR: "WAIT" };
+  const lin = $("linea").getContext("2d");
+  let n = 0, fuentes = [], nllm = 0, nsam = 0, pasos = 0, aviso = 0, presupuesto = 1, decisor = "Muse Spark";
+
+  function linea() {
+    const ancho = 1000 / presupuesto;
+    lin.clearRect(0, 0, 1000, 22);
+    fuentes.forEach((f, k) => { lin.fillStyle = f === "llm" ? "#f85149" : "#3fb950"; lin.fillRect(k * ancho, 0, ancho, 22); });
+  }
+
+  function fila(ev) {
+    const d = document.createElement("div"), b = document.createElement("b"), s = document.createElement("span");
+    d.className = "ll" + (ev.mascaras !== undefined ? " sam" : "");
+    b.textContent = `${ev.modelo}  ${ev.ms} ms${ev.red === false ? "  (cached)" : ""}`;
+    d.append(b, document.createElement("br"));
+    if (ev.mascaras !== undefined) {
+      s.textContent = `${ev.prompt ? `prompt "${ev.prompt}" → ` : ""}${ev.mascaras} masks`;
+      d.append(s);
+    } else {
+      s.textContent = `${ev.entrada} tokens in, ${ev.salida} out → `;
+      d.append(s, document.createTextNode(ev.respuesta));
+    }
+    const r = $("registro");
+    r.prepend(d);
+    while (r.children.length > 40) r.lastChild.remove();
+  }
+
+  function motivo(ev) {
+    if (ev.sorpresa) return "Surprise";
+    return ev.conf < 0 ? "SAM lost the bot" : "Low confidence";
+  }
+
+  function listo(ev) {
+    const vivo = ev.modo === "api";
+    presupuesto = ev.presupuesto;
+    decisor = vivo ? "Muse Spark" : "Simulated policy";
+    $("modo").textContent = vivo ? "LIVE: real calls to api.meta.ai" : "SIMULATED: no model calls";
+    $("modo").className = vivo ? "vivo" : "sim";
+    $("nota").textContent = vivo ? "Simulated 12 × 12 world. The model calls are real." : "Rehearsal: nothing here comes from a Meta model.";
+    $("t-frame").textContent = ev.sam ? (vivo ? "Frame sent to SAM 3.1" : "World frame") : "World frame, SAM 3.1 off";
+    $("t-mascaras").textContent = ev.sam ? (vivo ? "Masks returned by SAM 3.1" : "Masks from pixel colors, not SAM 3.1") : "No masks, SAM 3.1 off";
+    $("t-llm").textContent = decisor; $("t-nllm").textContent = `${decisor} decisions`;
+    $("t-nsam").textContent = vivo ? "SAM 3.1 images" : "Frames read locally";
+    $("t-registro").textContent = vivo ? "Calls to api.meta.ai, newest first" : "Local stand-ins, no network";
+  }
+
+  function inicio() {
+    fuentes = []; nllm = 0; nsam = 0; pasos = 0; aviso = 0;
+    $("registro").textContent = ""; $("aviso").textContent = ""; $("pred").textContent = ""; $("aro").style.display = "none";
+    for (const c of ["nllm", "nsam", "npasos", "nevita"]) $(c).textContent = "0";
+    $("quien").className = ""; $("quien").textContent = "Starting";
+    $("empezar").disabled = true; $("perturbar").disabled = false; linea();
+  }
+
+  function paso(ev) {
+    $("frame").src = "data:image/png;base64," + ev.frame;
+    $("mascaras").src = "data:image/png;base64," + (ev.mascaras || ev.frame);
+    if (ev.fuente) {
+      pasos = ev.paso; fuentes.push(ev.fuente); linea();
+      const a = NOMBRES[ev.accion] || ev.accion, llm = ev.fuente === "llm";
+      if (llm) { nllm++; $("nllm").textContent = nllm; }
+      $("quien").className = ev.fuente;
+      $("quien").textContent = llm ? `${motivo(ev)}: ${decisor} decides ${a}` : `Atisbo decides ${a}, no call`;
+      $("conf").textContent = ev.conf < 0 ? "blind" : ev.conf.toFixed(2);
+      $("barra").style.width = `${Math.max(0, Math.min(1, ev.conf)) * 100}%`;
+      $("barra").style.background = ev.conf >= 0.5 ? "var(--verde)" : "var(--rojo)";
+      $("pred").textContent = llm ? "" : "Atisbo's plan: " + ev.predichas.map((x) => NOMBRES[x] || x).join(", ");
+      $("npasos").textContent = pasos; $("nevita").textContent = pasos - nllm;
+    }
+    if (aviso && pasos >= aviso + 4) { $("aviso").textContent = ""; $("aro").style.display = "none"; aviso = 0; }
+  }
+
+  function perturbacion(ev) {
+    if (ev.pedida) $("aviso").textContent = ev.ok ? "You moved the object closest to the bot" : "Nothing to move right now";
+    if (ev.celda) {
+      $("aro").style.left = `${ev.celda[0] * 100 / 12}%`; $("aro").style.top = `${ev.celda[1] * 100 / 12}%`;
+      $("aro").style.display = "block";
+    }
+    else $("aviso").textContent = "The world changed on its own";
+    aviso = pasos || 1;
+  }
+
+  function fin(ev) {
+    $("quien").className = "";
+    if (ev.truncada) $("quien").textContent = `Stopped at the call cap after ${ev.pasos} steps`;
+    else if (ev.exito) $("quien").textContent = `Task completed in ${ev.pasos} steps, ${ev.llamadas} decided by ${decisor}`;
+    else $("quien").textContent = `Task not completed after ${ev.pasos} steps`;
+    $("empezar").disabled = false; $("perturbar").disabled = true;
+  }
+
+  function trata(ev) {
+    if (ev.tipo === "listo") listo(ev);
+    else if (ev.tipo === "inicio") inicio();
+    else if (ev.tipo === "paso") paso(ev);
+    else if (ev.tipo === "perturbacion") perturbacion(ev);
+    else if (ev.tipo === "fin") fin(ev);
+    else if (ev.tipo === "llamada") {
+      if (ev.mascaras !== undefined) { nsam++; $("nsam").textContent = nsam; }
+      fila(ev);
+    } else if (ev.tipo === "error") {
+      $("aviso").textContent = "Error: " + ev.texto;
+      $("quien").className = ""; $("quien").textContent = "Stopped";
+      $("empezar").disabled = false; $("perturbar").disabled = true;
+    }
+  }
+
+  async function sondea() {
+    try {
+      const evs = await fetch(`/eventos?desde=${n}`).then((r) => r.json());
+      for (const ev of evs) { n = ev.n + 1; trata(ev); }
+    } catch (e) { $("aviso").textContent = "Console stopped"; }
+    setTimeout(sondea, 120);
+  }
+
+  const envia = (ruta) => fetch(ruta, { method: "POST", headers: { "X-Consola": "1" } });
+  $("empezar").addEventListener("click", () => envia("/empezar"));
+  $("perturbar").addEventListener("click", () => { $("aviso").textContent = "Moving it on the next step"; envia("/perturbar"); });
+  sondea();
+})();
+</script>
+</body>
+</html>

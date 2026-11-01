@@ -107,6 +107,17 @@ Después los artefactos:
 - `--modo replay` reproduce sin red desde `cache/`, y lo que falte da `CacheMiss`. `replay/cache.tar.xz` trae la caché de LLM y SAM: peticiones y respuestas, sin cabeceras ni clave.
 - `tests/fixtures/llm` trae los dos primeros episodios de E1 sacados de `cache/llm`.
 
+## Consola en vivo
+
+`demo/vivo.py` corre un episodio en el navegador y muestra cada llamada a `muse-spark-1.3` y `sam-3.1`, con su latencia, sus tokens y su respuesta. El mundo es simulado y las llamadas son reales. Un botón mueve el objeto más cercano al bot en pleno episodio. Sirve solo en local, pide la clave sin eco si falta y nunca la envía a la página.
+
+~~~
+.venv\Scripts\python.exe -m demo.vivo --modo api
+.venv\Scripts\python.exe -m demo.vivo --modo simulada
+~~~
+
+`--modo simulada` no usa red, clave ni modelos de Meta. Sirve para ensayar, y la página lo avisa.
+
 ## Coste de la evaluación
 
 | Experimento | Episodios | Llamadas al LLM | Por episodio | Éxito | Coste estimado | Sin Atisbo (estimado) |
