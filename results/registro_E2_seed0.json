@@ -1,0 +1,5151 @@
+{
+  "episodio": 4,
+  "epsilon": 2.288594589025908,
+  "estado_final": {
+    "bloqueo": null,
+    "bot": [
+      0,
+      0
+    ],
+    "carga": null,
+    "cubos": {
+      "azul": [
+        0,
+        11
+      ],
+      "rojo": [
+        0,
+        0
+      ],
+      "verde": [
+        11,
+        0
+      ]
+    },
+    "objetos": [
+      [
+        5,
+        "rojo",
+        0,
+        0,
+        true
+      ],
+      [
+        6,
+        "azul",
+        0,
+        11,
+        true
+      ],
+      [
+        7,
+        "verde",
+        11,
+        0,
+        true
+      ],
+      [
+        8,
+        "rojo",
+        0,
+        0,
+        true
+      ]
+    ],
+    "paso": 87
+  },
+  "exito": true,
+  "llamadas_llm": 27,
+  "pasos": [
+    {
+      "accion": "DER",
+      "conf": 0.04425785212617541,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          6,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 0
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.03974892538145754,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          7,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 1
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.036038601451405944,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          8,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 2
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.03840488088662974,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 3
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.04291273950433789,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 4
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "TOMAR",
+      "conf": 0.04905233917635455,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          5
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            3,
+            "rojo",
+            10,
+            5,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 5
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.6458095965761486,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 6
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.6458095965761486,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 7
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.2855424640699715
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.6458095965761486,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          8,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 8
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.359406056767044
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9835904552688354,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          7,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 9
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9835904552688354,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          6,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 10
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.7078520969006996
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9835904552688354,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          5,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 11
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.6607070018713503
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9104952612220677,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          4,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 12
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9104952612220677,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          3,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 13
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.8091133822474827
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9104952612220677,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          2,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 14
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.7783041118618081
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.5361739767677149,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 15
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5361739767677149,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 16
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.560060562435394
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5361739767677149,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          4
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 17
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.5406719564076166
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.93695268501721,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          3
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 18
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.93695268501721,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          2
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 19
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.294700901631307
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.93695268501721,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          1
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 20
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.3020825002062382
+    },
+    {
+      "accion": "SOLTAR",
+      "conf": 0.20130723969014344,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          0
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ]
+        ],
+        "paso": 21
+      },
+      "fuente": "llm",
+      "predichas": [
+        "SOLTAR",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.4527933452796285,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          0
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 22
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.37978762011418155,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          0
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 23
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "TOMAR",
+      "conf": 0.34745628609461454,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          1
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            4,
+            "azul",
+            1,
+            1,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 24
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.3928542852731934,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          1
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 25
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.8285447071660466,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          2
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 26
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.8285447071660466,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          3
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 27
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 1.3499187426301595
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.8285447071660466,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          4
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 28
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO"
+      ],
+      "sorpresa": 1.4836506636658733
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9879961102990783,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          5
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 29
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9879961102990783,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          6
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 30
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 1.582546293107346
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9879961102990783,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          7
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 31
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO"
+      ],
+      "sorpresa": 1.6577123852203426
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9363751731360812,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          8
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 32
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9363751731360812,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          9
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 33
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 1.5350620512990536
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.9363751731360812,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          10
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 34
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO"
+      ],
+      "sorpresa": 1.6727655254273455
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.22691767700986698,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          11
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 35
+      },
+      "fuente": "llm",
+      "predichas": [
+        "SOLTAR",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "SOLTAR",
+      "conf": 0.5619723765693908,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          11
+        ],
+        "carga": "azul",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ]
+        ],
+        "paso": 36
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "SOLTAR",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.5619723765693908,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 37
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 2.2026711794480645
+    },
+    {
+      "accion": "DER",
+      "conf": 0.5619723765693908,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 38
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER"
+      ],
+      "sorpresa": 2.1033635615001716
+    },
+    {
+      "accion": "DER",
+      "conf": 0.8984268272129886,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          2,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 39
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.8984268272129886,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          3,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 40
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 1.6366746905712732
+    },
+    {
+      "accion": "DER",
+      "conf": 0.8984268272129886,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          4,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 41
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER"
+      ],
+      "sorpresa": 1.7368019488102757
+    },
+    {
+      "accion": "DER",
+      "conf": 0.40609723913638723,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          5,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 42
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.2757410024055051,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          6,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 43
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.16848844655673714,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          7,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 44
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.08460393896374471,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          8,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 45
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.07493276777781054,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          11
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 46
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "TOMAR",
+      "conf": 0.16065927320596796,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          10
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            1,
+            "verde",
+            9,
+            10,
+            false
+          ],
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 47
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.29759463974844,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          10
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 48
+      },
+      "fuente": "llm",
+      "predichas": [
+        "DER",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "DER",
+      "conf": 0.5040688307798857,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          9
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 49
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "DER",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5040688307798857,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          9
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 50
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.3408613316219447
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5040688307798857,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          8
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 51
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.492241088047461
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9869861479171799,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          7
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 52
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9869861479171799,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          6
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 53
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.6065301562467698
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9869861479171799,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          5
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 54
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.6485898070236478
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9644184250264733,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          4
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 55
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9644184250264733,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          3
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 56
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.6711756413504535
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9644184250264733,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          2
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            11,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 57
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.7297404171792532
+    },
+    {
+      "accion": "DER",
+      "conf": 0.12823962419579168,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          1
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 58
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ARRIBA",
+        "SOLTAR",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.14925903134079974,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          1
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 59
+      },
+      "fuente": "llm",
+      "predichas": [
+        "SOLTAR",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "SOLTAR",
+      "conf": 0.23380216028183565,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          0
+        ],
+        "carga": "verde",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ]
+        ],
+        "paso": 60
+      },
+      "fuente": "llm",
+      "predichas": [
+        "SOLTAR",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.3089810289791987,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          0
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 61
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.3959379171714744,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          1
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 62
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.5163361047725136,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          2
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 63
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.5163361047725136,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          3
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 64
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 1.4328671324325128
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.5163361047725136,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          4
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 65
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ABAJO"
+      ],
+      "sorpresa": 1.589101279908915
+    },
+    {
+      "accion": "ABAJO",
+      "conf": 0.4183819513510114,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          5
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 66
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "TOMAR",
+      "conf": 0.2961903860412051,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          6
+        ],
+        "carga": null,
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            2,
+            "rojo",
+            11,
+            6,
+            false
+          ],
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 67
+      },
+      "fuente": "llm",
+      "predichas": [
+        "ABAJO",
+        "ABAJO",
+        "ABAJO"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.8010300473710156,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          11,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 68
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.8010300473710156,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          10,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 69
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.6825154095987178
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.8010300473710156,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          9,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 70
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.6998618607927534
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9952061462450941,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          8,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 71
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9952061462450941,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          7,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 72
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.7634778965331854
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9952061462450941,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          6,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 73
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.777145949231448
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9735909224014834,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          5,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 74
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9735909224014834,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          4,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 75
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ"
+      ],
+      "sorpresa": 1.6054082147737523
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.9735909224014834,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          3,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 76
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ"
+      ],
+      "sorpresa": 1.5864231719249453
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.5146837166735506,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          2,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 77
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "IZQ",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "IZQ",
+      "conf": 0.5146837166735506,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          1,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 78
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "IZQ",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.4980788944219041
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5146837166735506,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          6
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 79
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.5141521150113897
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9708035925219235,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          5
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 80
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9708035925219235,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          4
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 81
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.5029056811091643
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.9708035925219235,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          3
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 82
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.6015755247628185
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5629004922149382,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          2
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 83
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 0.0
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5629004922149382,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          1
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 84
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA",
+        "ARRIBA"
+      ],
+      "sorpresa": 1.5963439932851589
+    },
+    {
+      "accion": "ARRIBA",
+      "conf": 0.5629004922149382,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          0
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 85
+      },
+      "fuente": "atisbo",
+      "predichas": [
+        "ARRIBA"
+      ],
+      "sorpresa": 1.7168302804756237
+    },
+    {
+      "accion": "SOLTAR",
+      "conf": 0.38885868311251537,
+      "estado": {
+        "bloqueo": null,
+        "bot": [
+          0,
+          0
+        ],
+        "carga": "rojo",
+        "cubos": {
+          "azul": [
+            0,
+            11
+          ],
+          "rojo": [
+            0,
+            0
+          ],
+          "verde": [
+            11,
+            0
+          ]
+        },
+        "objetos": [
+          [
+            5,
+            "rojo",
+            0,
+            0,
+            true
+          ],
+          [
+            6,
+            "azul",
+            0,
+            11,
+            true
+          ],
+          [
+            7,
+            "verde",
+            11,
+            0,
+            true
+          ]
+        ],
+        "paso": 86
+      },
+      "fuente": "llm",
+      "predichas": [
+        "SOLTAR",
+        "DER",
+        "DER"
+      ],
+      "sorpresa": 0.0
+    }
+  ],
+  "seed": 0,
+  "tau": 0.5
+}

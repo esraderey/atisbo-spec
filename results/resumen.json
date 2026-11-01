@@ -1,0 +1,139 @@
+{
+  "ahorro_alpha_001_pct": 35.79576317218902,
+  "coste": {
+    "con_atisbo_e2_e3": 9527,
+    "coste_total_usd": 42.14042175,
+    "filas": [
+      {
+        "coste_usd": 2.36431475,
+        "episodios": 20,
+        "exito": 1.0,
+        "experimento": "E1: Muse Spark decide cada paso",
+        "llamadas": 1841,
+        "por_episodio": 92.05,
+        "sin_atisbo": null
+      },
+      {
+        "coste_usd": 3.15350125,
+        "episodios": 50,
+        "exito": 0.96,
+        "experimento": "E2: Atisbo, τ = 0.5",
+        "llamadas": 2463,
+        "por_episodio": 49.26,
+        "sin_atisbo": 4600
+      },
+      {
+        "coste_usd": 7.298716000000001,
+        "episodios": 20,
+        "exito": 0.75,
+        "experimento": "E2_sam: E2 con estado desde SAM 3.1",
+        "llamadas": 1062,
+        "por_episodio": 53.1,
+        "sin_atisbo": 1800
+      },
+      {
+        "coste_usd": null,
+        "episodios": 50,
+        "exito": 1.0,
+        "experimento": "E3: CRC, α = 0.01",
+        "llamadas": 2955,
+        "por_episodio": 59.1,
+        "sin_atisbo": 4600
+      },
+      {
+        "coste_usd": null,
+        "episodios": 50,
+        "exito": 0.64,
+        "experimento": "E3: CRC, α = 0.05",
+        "llamadas": 2203,
+        "por_episodio": 44.06,
+        "sin_atisbo": 4600
+      },
+      {
+        "coste_usd": null,
+        "episodios": 50,
+        "exito": 0.18,
+        "experimento": "E3: CRC, α = 0.1",
+        "llamadas": 1906,
+        "por_episodio": 38.12,
+        "sin_atisbo": 4600
+      },
+      {
+        "coste_usd": 9.31403275,
+        "episodios": 150,
+        "exito": null,
+        "experimento": "E3 en total",
+        "llamadas": 7064,
+        "por_episodio": null,
+        "sin_atisbo": 13800
+      },
+      {
+        "coste_usd": 9.97692525,
+        "episodios": 150,
+        "exito": null,
+        "experimento": "E4 en total",
+        "llamadas": 7770,
+        "por_episodio": null,
+        "sin_atisbo": 13800
+      },
+      {
+        "coste_usd": 10.03293175,
+        "episodios": 150,
+        "exito": null,
+        "experimento": "E5 en total",
+        "llamadas": 7750,
+        "por_episodio": null,
+        "sin_atisbo": 13800
+      }
+    ],
+    "llamadas_total": 27950,
+    "sin_atisbo_e2_e3": 18400
+  },
+  "h1": {
+    "e2": {
+      "ahorro_pct": 46.485605649103746,
+      "delta_exito_pp": -4.0000000000000036,
+      "ratio_llamadas": 0.5351439435089625
+    },
+    "e2_sam": {
+      "ahorro_pct": 42.31395980445409,
+      "delta_exito_pp": -25.0,
+      "ratio_llamadas": 0.5768604019554591
+    },
+    "e3": {
+      "ahorro_pct": 52.134709397066814,
+      "delta_exito_pp": -36.0,
+      "ratio_llamadas": 0.4786529060293319
+    }
+  },
+  "riesgo": {
+    "0.01": {
+      "alpha": 0.01,
+      "riesgo_empirico": 0.09322608742417936,
+      "veces": 9.322608742417936
+    },
+    "0.05": {
+      "alpha": 0.05,
+      "riesgo_empirico": 0.21119931757932975,
+      "veces": 4.2239863515865945
+    },
+    "0.1": {
+      "alpha": 0.1,
+      "riesgo_empirico": 0.36193659529823025,
+      "veces": 3.619365952982302
+    }
+  },
+  "sam": {
+    "coincidencia_bot_pct": 100.0,
+    "coincidencia_todo_pct": 97.32388815598252,
+    "coste_llm_usd": 1.381216,
+    "coste_sam_usd": 5.9175,
+    "imagenes": 2367
+  },
+  "video": {
+    "episodio": 4,
+    "llamadas_llm": 27,
+    "pasos": 87,
+    "pct_llm": 31.03448275862069
+  }
+}
