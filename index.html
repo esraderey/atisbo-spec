@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATISBO-SPEC live replay</title>
+<style>
+:root{--fondo:#0d1117;--panel:#18202a;--linea:#343c48;--texto:#e8eef4;--gris:#929caa;--verde:#3fb950;--rojo:#f85149;--ambar:#e8b848;--azul:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 48px}
+header{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+h1{margin:0;font-size:34px;line-height:1.15}
+h2{margin:0 0 12px;font-size:20px}
+.sub{margin:4px 0 0;color:var(--gris)}
+button,select{background:var(--panel);color:var(--texto);border:1px solid var(--linea);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+button:hover,select:hover{border-color:var(--azul)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+.reproductor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:20px}
+canvas{display:block;width:100%}
+#tablero{border-radius:12px;background:var(--panel);aspect-ratio:1}
+.marcador{display:flex;flex-direction:column;gap:14px;min-width:0}
+.etiqueta{color:var(--gris);font-size:14px}
+#quien{border-radius:12px;padding:14px;text-align:center;font-size:22px;font-weight:600;color:#fff;background:#267c3a}
+#quien.llm{background:#b02c28}
+#quien.fin{background:#2e5a3c}
+.barra{position:relative;height:18px;border-radius:9px;background:var(--panel);border:1px solid var(--linea);overflow:hidden}
+.barra>i{position:absolute;inset:0 auto 0 0;background:var(--verde)}
+.barra.tau::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--texto)}
+.fila{display:flex;justify-content:space-between;gap:12px}
+.cifras{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cifra b{display:block;font-size:52px;line-height:1.1;font-weight:600}
+#nllm{color:var(--rojo)}
+#aviso{min-height:48px;color:var(--ambar);font-weight:600}
+.pie{grid-column:1/-1}
+.controles{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.controles input[type=range]{flex:1 1 200px;min-width:160px;accent-color:var(--azul)}
+#linea{height:32px;border-radius:6px;cursor:pointer}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tarjeta{background:var(--panel);border-radius:12px;padding:16px}
+.tarjeta b{display:block;font-size:30px;line-height:1.2}
+section{margin-top:32px}
+p{margin:0 0 10px}
+.leyenda{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;color:var(--gris);font-size:14px}
+.leyenda span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;background:var(--c)}
+@media (max-width:820px){.reproductor{grid-template-columns:minmax(0,1fr)}h1{font-size:28px}.cifra b{font-size:42px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>ATISBO-SPEC</h1>
+      <p class="sub" data-t="lema"></p>
+    </div>
+    <button id="idioma" type="button"></button>
+  </header>
+
+  <div class="reproductor">
+    <canvas id="tablero" width="816" height="816" role="img" aria-label="12 by 12 board of the episode"></canvas>
+    <div class="marcador">
+      <div class="etiqueta" id="titulo"></div>
+      <div id="quien" aria-live="polite"></div>
+      <div>
+        <div class="fila"><span data-t="confianza"></span><strong id="conf"></strong></div>
+        <div class="barra tau"><i id="barraconf"></i></div>
+        <div class="etiqueta" data-t="umbral"></div>
+      </div>
+      <div class="cifras">
+        <div class="cifra"><span class="etiqueta" data-t="llamadas"></span><b id="nllm">0</b></div>
+        <div class="cifra"><span class="etiqueta" data-t="pasos"></span><b id="npasos">0</b></div>
+      </div>
+      <div>
+        <div class="etiqueta" data-t="con"></div>
+        <div class="barra"><i id="barrallm" style="background:var(--rojo)"></i></div>
+        <div class="etiqueta" data-t="sin" style="margin-top:6px"></div>
+        <div class="barra"><i id="barrapasos" style="background:#78829a"></i></div>
+      </div>
+      <div id="aviso" aria-live="polite"></div>
+    </div>
+    <div class="pie">
+      <div class="etiqueta" data-t="quiendecidio"></div>
+      <canvas id="linea" width="1200" height="48"></canvas>
+      <div class="leyenda">
+        <span style="--c:var(--verde)" data-t="lverde"></span>
+        <span style="--c:var(--rojo)" data-t="lrojo"></span>
+        <span style="--c:var(--ambar)" data-t="lambar"></span>
+      </div>
+      <div class="controles">
+        <button id="jugar" type="button"></button>
+        <input id="posicion" type="range" min="0" value="0" step="1" aria-label="Step">
+        <select id="velocidad" aria-label="Speed">
+          <option value="2">×0.5</option><option value="4" selected>×1</option><option value="8">×2</option><option value="16">×4</option>
+        </select>
+        <select id="episodio" aria-label="Episode"></select>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2 data-t="quees"></h2>
+    <p data-t="quees1"></p>
+    <p data-t="quees2"></p>
+    <p data-t="quees3"></p>
+  </section>
+
+  <section>
+    <h2 data-t="resultados"></h2>
+    <div class="tarjetas" id="tarjetas"></div>
+    <p class="etiqueta" style="margin-top:12px" data-t="nota"></p>
+  </section>
+</main>
+
+<script>
+(async function () {
+  const TEXTOS = {
+    en: {
+      lema: "Live replay: a small model decides when an agent can skip the LLM",
+      confianza: "Atisbo's confidence", umbral: "Line: threshold τ = 0.5", llamadas: "Calls to Muse Spark", pasos: "Steps",
+      con: "With Atisbo", sin: "One call per step", quiendecidio: "Who decided each step",
+      lverde: "Atisbo decides, no call", lrojo: "Muse Spark decides", lambar: "Actions Atisbo predicts",
+      jugar: "Play", pausa: "Pause", dec_a: "Atisbo decides: no call", dec_m: "Muse Spark decides: 1 call", fin_ok: "Task completed", fin_ko: "Out of steps: task failed",
+      perturb: "Perturbation: the world changed", titulo: (e) => `Real episode ${e}, seed 0`,
+      opcion: (e, p, l, x) => `Episode ${e}: ${p} steps, ${l} calls${x ? "" : ", fails"}`,
+      quees: "What you are seeing",
+      quees1: "An agent has to carry objects to their matching bins in a 12 × 12 world that sometimes changes on its own. Atisbo, a small model trained on traces, predicts the next 3 actions. While it is confident, the agent acts without calling an LLM. When it is not, Muse Spark decides.",
+      quees2: "Every step here is a real recording: Atisbo's predictions and confidence, and Muse Spark's answers, replayed from this repository. Nothing calls an API, so no key is needed.",
+      quees3: "Episode 4 is the one with the fewest calls in this seed. Episode 0 fails: it runs out of its 160 steps. All ten are here so you can see both.",
+      resultados: "Results",
+      ahorro: "fewer calls than Muse Spark at every step", h1: "calls against E1; the hypothesis asked for 0.30, so it is not met", riesgo: "closed-loop risk against the target α", total: (i) => `Muse Spark calls and ${i} SAM 3.1 images in the evaluation`,
+      nota: "This is a toy world, and these results are not extrapolated to real tasks. Comparisons with E1 are approximate because E1 runs in a different world. The README has the tables and confidence intervals.",
+      error: "Could not load the data. Open this page through a web server.", idioma: "Español"
+    },
+    es: {
+      lema: "Reproducción en vivo: un modelo pequeño decide cuándo un agente puede saltarse el LLM",
+      confianza: "Confianza de Atisbo", umbral: "Línea: umbral τ = 0.5", llamadas: "Llamadas a Muse Spark", pasos: "Pasos",
+      con: "Con Atisbo", sin: "Una llamada por paso", quiendecidio: "Quién decidió cada paso",
+      lverde: "Decide Atisbo, sin llamada", lrojo: "Decide Muse Spark", lambar: "Acciones que predice Atisbo",
+      jugar: "Reproducir", pausa: "Pausa", dec_a: "Decide Atisbo: sin llamada", dec_m: "Decide Muse Spark: 1 llamada", fin_ok: "Tarea completada", fin_ko: "Sin pasos: tarea fallida",
+      perturb: "Perturbación: el mundo ha cambiado", titulo: (e) => `Episodio real ${e}, semilla 0`,
+      opcion: (e, p, l, x) => `Episodio ${e}: ${p} pasos, ${l} llamadas${x ? "" : ", falla"}`,
+      quees: "Qué estás viendo",
+      quees1: "Un agente debe llevar objetos a sus cubos en un mundo de 12 × 12 que a veces cambia solo. Atisbo, un modelo pequeño entrenado con trazas, predice las próximas 3 acciones. Mientras confía, el agente actúa sin llamar a un LLM. Si no, decide Muse Spark.",
+      quees2: "Cada paso es una grabación real: las predicciones y la confianza de Atisbo y las respuestas de Muse Spark, reproducidas desde este repositorio. Nada llama a una API, así que no hace falta clave.",
+      quees3: "El episodio 4 es el que menos llama de esta semilla. El 0 falla: agota sus 160 pasos. Están los diez para que veas los dos casos.",
+      resultados: "Resultados",
+      ahorro: "menos llamadas que con Muse Spark en cada paso", h1: "llamadas frente a E1; la hipótesis pedía 0.30, así que no se cumple", riesgo: "riesgo en lazo cerrado frente al objetivo α", total: (i) => `llamadas a Muse Spark y ${i} imágenes de SAM 3.1 en la evaluación`,
+      nota: "Es un mundo de juguete y estos resultados no se extrapolan a tareas reales. Las comparaciones con E1 son aproximadas porque E1 corre en otro mundo. El README trae las tablas y los intervalos de confianza.",
+      error: "No se pudieron cargar los datos. Abre esta página desde un servidor web.", idioma: "English"
+    }
+  };
+  const COLOR = { rojo: "#f85149", verde: "#3fb950", azul: "#58a6ff" };
+  const CUBOS = { rojo: [0, 0], verde: [11, 0], azul: [0, 11] };
+  const DELTA = { ARRIBA: [0, -1], ABAJO: [0, 1], IZQ: [-1, 0], DER: [1, 0] };
+  const $ = (id) => document.getElementById(id);
+  let lang = new URLSearchParams(location.search).get("lang") === "es" ? "es" : "en";
+  const t = () => TEXTOS[lang];
+
+  let datos, resumen;
+  try {
+    [datos, resumen] = await Promise.all(["results/pagina.json", "results/resumen.json"].map((u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); })));
+  } catch (e) {
+    document.querySelector("main").textContent = t().error;
+    return;
+  }
+
+  const ctx = $("tablero").getContext("2d");
+  const lin = $("linea").getContext("2d");
+  const C = 816 / 12;
+  let ep, n, cum, s = 0, jugando = true, antes = 0, ultimo = -1;
+
+  function rect(c, x, y, w, h, r) { c.beginPath(); c.roundRect(x, y, w, h, r); }
+
+  function estadoEn(i) { return i < n ? ep.pasos[i].estado : ep.estado_final; }
+
+  function celdas(e, pred) {
+    let [x, y] = e.bot;
+    return pred.map((a) => {
+      const [dx, dy] = DELTA[a] || [0, 0];
+      const nx = Math.min(11, Math.max(0, x + dx)), ny = Math.min(11, Math.max(0, y + dy));
+      if (!(e.bloqueo && e.bloqueo[0] === nx && e.bloqueo[1] === ny)) { x = nx; y = ny; }
+      return [x, y];
+    });
+  }
+
+  function dibuja() {
+    const i = Math.min(Math.floor(s), n), fr = s - i, e = estadoEn(i);
+    ctx.fillStyle = "#18202a"; ctx.fillRect(0, 0, 816, 816);
+    ctx.strokeStyle = "#343c48"; ctx.lineWidth = 1;
+    for (let k = 0; k <= 12; k++) {
+      ctx.beginPath(); ctx.moveTo(k * C, 0); ctx.lineTo(k * C, 816); ctx.moveTo(0, k * C); ctx.lineTo(816, k * C); ctx.stroke();
+    }
+    for (const [tipo, [x, y]] of Object.entries(CUBOS)) {
+      ctx.strokeStyle = COLOR[tipo]; ctx.lineWidth = 5; rect(ctx, x * C + 4, y * C + 4, C - 8, C - 8, 8); ctx.stroke();
+    }
+    if (e.bloqueo) { ctx.fillStyle = "#5c4682"; rect(ctx, e.bloqueo[0] * C + 4, e.bloqueo[1] * C + 4, C - 8, C - 8, 8); ctx.fill(); }
+    const enCubo = {};
+    for (const [, tipo, x, y, dentro] of e.objetos) {
+      ctx.fillStyle = COLOR[tipo];
+      if (dentro) {
+        const k = enCubo[tipo] = (enCubo[tipo] || 0) + 1;
+        rect(ctx, x * C + 11 + ((k - 1) % 2) * 26, y * C + 11 + Math.floor((k - 1) / 2) * 26, 18, 18, 4);
+      } else rect(ctx, x * C + 15, y * C + 15, 38, 38, 7);
+      ctx.fill();
+    }
+    let bx = e.bot[0], by = e.bot[1];
+    if (i < n) {
+      celdas(e, ep.pasos[i].predichas).forEach(([x, y], j) => {
+        ctx.fillStyle = `rgba(232,184,72,${[0.6, 0.4, 0.27][Math.min(j, 2)]})`; rect(ctx, x * C + 9, y * C + 9, 50, 50, 9); ctx.fill();
+      });
+      const sig = estadoEn(i + 1), u = Math.min(1, fr * 1.4), v = u * u * (3 - 2 * u);
+      bx += (sig.bot[0] - bx) * v; by += (sig.bot[1] - by) * v;
+    }
+    ctx.fillStyle = "#d6dee8"; rect(ctx, bx * C + 7, by * C + 7, 54, 54, 12); ctx.fill();
+    if (e.carga) { ctx.fillStyle = COLOR[e.carga]; rect(ctx, bx * C + 21, by * C + 21, 26, 26, 5); ctx.fill(); }
+    if (i < n && ep.pasos[i].fuente === "llm") {
+      ctx.strokeStyle = `rgba(248,81,73,${1 - fr})`; ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.arc(bx * C + C / 2, by * C + C / 2, 34 + fr * 60, 0, 7); ctx.stroke();
+    }
+    if (ep.perturbaciones.some((p) => i >= p && i < p + 4) && i > 0) {
+      const previo = estadoEn(ep.perturbaciones.filter((p) => p <= i).pop() - 1), ahora = estadoEn(ep.perturbaciones.filter((p) => p <= i).pop());
+      const claves = new Set(previo.objetos.map((o) => `${o[1]},${o[2]},${o[3]}`));
+      ctx.strokeStyle = "#e8b848"; ctx.lineWidth = 4;
+      for (const o of ahora.objetos) if (!claves.has(`${o[1]},${o[2]},${o[3]}`) && !o[4]) { rect(ctx, o[2] * C + 4, o[3] * C + 4, C - 8, C - 8, 10); ctx.stroke(); }
+    }
+    if (i !== ultimo) { marcador(i); ultimo = i; }
+    dibujaLinea(i);
+  }
+
+  function marcador(i) {
+    const fin = i >= n, p = ep.pasos[Math.min(i, n - 1)], q = $("quien");
+    q.className = fin ? "fin" : p.fuente === "llm" ? "llm" : "";
+    q.textContent = fin ? (ep.exito ? t().fin_ok : t().fin_ko) : p.fuente === "llm" ? t().dec_m : t().dec_a;
+    $("conf").textContent = p.conf.toFixed(2);
+    $("barraconf").style.width = `${Math.max(0, Math.min(1, p.conf)) * 100}%`;
+    $("barraconf").style.background = p.conf >= datos.tau ? "var(--verde)" : "var(--rojo)";
+    const nl = cum[Math.min(i, n - 1)], np = fin ? n : i + 1;
+    $("nllm").textContent = nl; $("npasos").textContent = np;
+    $("barrallm").style.width = `${nl / n * 100}%`; $("barrapasos").style.width = `${np / n * 100}%`;
+    $("posicion").value = i;
+    $("aviso").textContent = ep.perturbaciones.some((k) => i >= k && i < k + 4) ? t().perturb : "";
+  }
+
+  function dibujaLinea(i) {
+    const w = 1200 / n;
+    lin.clearRect(0, 0, 1200, 48);
+    ep.pasos.forEach((p, k) => {
+      lin.globalAlpha = k <= i ? 1 : 0.22;
+      lin.fillStyle = p.fuente === "llm" ? "#f85149" : "#3fb950";
+      lin.fillRect(k * w, 12, Math.ceil(w), 36);
+    });
+    lin.globalAlpha = 1; lin.fillStyle = "#e8b848";
+    for (const k of ep.perturbaciones) { lin.beginPath(); lin.moveTo(k * w - 7, 0); lin.lineTo(k * w + 7, 0); lin.lineTo(k * w, 11); lin.fill(); }
+  }
+
+  function carga(k) {
+    ep = datos.episodios[k]; n = ep.pasos.length; s = 0; ultimo = -1;
+    let c = 0; cum = ep.pasos.map((p) => (c += p.fuente === "llm" ? 1 : 0));
+    $("posicion").max = n;
+    $("titulo").textContent = t().titulo(k, datos.episodios.length);
+  }
+
+  function textos() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = t()[el.dataset.t]; });
+    $("idioma").textContent = t().idioma;
+    $("jugar").textContent = jugando ? t().pausa : t().jugar;
+    const sel = $("episodio"), val = sel.value || "4";
+    sel.innerHTML = "";
+    datos.episodios.forEach((e, k) => sel.add(new Option(t().opcion(k, e.pasos.length, e.llamadas_llm, e.exito), k)));
+    sel.value = val;
+    $("titulo").textContent = t().titulo(Number(val), datos.episodios.length);
+    const v = Object.values(resumen.riesgo).map((x) => x.veces), total = resumen.coste.llamadas_total.toLocaleString("en-US").replace(",", " ");
+    const fichas = [
+      [`${resumen.h1.e2.ahorro_pct.toFixed(1)} %`, t().ahorro],
+      [resumen.h1.e2.ratio_llamadas.toFixed(3), t().h1],
+      [`${Math.min(...v).toFixed(1)}–${Math.max(...v).toFixed(1)} × α`, t().riesgo],
+      [total, t().total(resumen.sam.imagenes)]
+    ];
+    const caja = $("tarjetas");
+    caja.textContent = "";
+    for (const [cifra, texto] of fichas) {
+      const d = document.createElement("div"), b = document.createElement("b"), p = document.createElement("span");
+      d.className = "tarjeta"; b.textContent = cifra; p.className = "etiqueta"; p.textContent = texto;
+      d.append(b, p); caja.append(d);
+    }
+    ultimo = -1;
+  }
+
+  function bucle(ahora) {
+    const dt = Math.min(0.1, (ahora - antes) / 1000); antes = ahora;
+    if (jugando) {
+      s = Math.min(n, s + dt * Number($("velocidad").value));
+      if (s >= n) { jugando = false; $("jugar").textContent = t().jugar; }
+    }
+    dibuja();
+    requestAnimationFrame(bucle);
+  }
+
+  $("jugar").addEventListener("click", () => {
+    if (!jugando && s >= n) s = 0;
+    jugando = !jugando; $("jugar").textContent = jugando ? t().pausa : t().jugar;
+  });
+  $("idioma").addEventListener("click", () => { lang = lang === "en" ? "es" : "en"; textos(); });
+  $("episodio").addEventListener("change", (ev) => { carga(Number(ev.target.value)); jugando = true; $("jugar").textContent = t().pausa; });
+  $("posicion").addEventListener("input", (ev) => { s = Number(ev.target.value); jugando = false; $("jugar").textContent = t().jugar; });
+  $("linea").addEventListener("click", (ev) => {
+    const r = ev.currentTarget.getBoundingClientRect();
+    s = Math.max(0, Math.min(n, (ev.clientX - r.left) / r.width * n)); ultimo = -1;
+  });
+
+  carga(4);
+  textos();
+  requestAnimationFrame((ahora) => { antes = ahora; bucle(ahora); });
+})();
+</script>
+</body>
+</html>
