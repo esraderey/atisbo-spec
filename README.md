@@ -6,7 +6,7 @@ Un modelo pequeño aprende de trazas a predecir las próximas acciones de un age
 
 A small model learns from traces to predict an agent's next actions. While it trusts its prediction, the agent acts without asking; otherwise Muse Spark decides. In E2, calls drop from 92.05 to 49.26 per episode, with success 0.96 against 1.00. With the state rebuilt from SAM 3.1 masks, success is 0.75. Hypothesis H1 fails, and this README reports it. The rest of this document is in Spanish, and its tables and commands read the same.
 
-Run the live console with `.venv\Scripts\python.exe -m demo.vivo --modo api`, or with `--modo simulada` for a rehearsal without a key or network.
+Watch real recorded episodes on the [public replay page](https://esraderey.github.io/atisbo-spec/). Run the live console with `.venv\Scripts\python.exe -m demo.vivo --modo api`, or with `--modo simulada` for a rehearsal without a key or network.
 
 ## Built during the hackathon
 
