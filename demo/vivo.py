@@ -1,6 +1,7 @@
 """Consola en vivo: un episodio con llamadas reales a Muse Spark y SAM 3.1, visibles paso a paso.
 
 Sirve solo en 127.0.0.1. La clave la leen los clientes de META_API_KEY y nunca llega a la página.
+Atisbo no es un modelo de Meta y va apagado por defecto: sin --atisbo decide Muse Spark en cada paso.
 Uso: python -m demo.vivo --modo api   (pide la clave sin eco si falta)
      python -m demo.vivo --modo simulada   (ensayo sin red ni modelos de Meta)
 """
@@ -23,6 +24,7 @@ from urllib.parse import parse_qs, urlparse
 import numpy as np
 from PIL import Image
 
+from atisbo.control import PredictorNulo
 from atisbo.env.perturbaciones import celdas_vacias
 from atisbo.env.render import BLOQUEO_COLOR, BOT_COLOR, CELL, COLORES, render
 from atisbo.env.trazas import PRESUPUESTO
@@ -158,7 +160,7 @@ class _ClienteVisto:
 class Consola:
     """Un episodio por vez, con cada decisión y cada llamada publicadas en el bus."""
 
-    def __init__(self, predictor, politica, mundo, tau, epsilon, modo, bus=None, cliente_sam=None, mascaras_de=None, pausa=0.25) -> None:
+    def __init__(self, predictor, politica, mundo, tau, epsilon, modo, bus=None, cliente_sam=None, mascaras_de=None, pausa=0.25, con_atisbo=True) -> None:
         self.bus = bus if bus is not None else Bus()
         self.vivo = MundoVivo(mundo, self.bus)
         self.tau, self.epsilon, self.modo, self.pausa = float(tau), float(epsilon), modo, float(pausa)
@@ -173,7 +175,7 @@ class Consola:
         self._frame = self._capa = None
         self._pred: list = []
         self.pasos = 0
-        self.bus.publica(tipo="listo", modo=modo, sam=self.con_sam, presupuesto=PRESUPUESTO)
+        self.bus.publica(tipo="listo", modo=modo, sam=self.con_sam, atisbo=bool(con_atisbo), presupuesto=PRESUPUESTO)
 
     def _ve(self, frame):
         t0 = time.perf_counter()
@@ -292,6 +294,17 @@ def pedir_clave() -> None:
         raise SystemExit("Falta META_API_KEY.")
 
 
+def cargar_predictor(con_atisbo: bool):
+    """Pesos fijos de modelo/ si se pide Atisbo; si no, un predictor que nunca especula."""
+    raiz = Path(__file__).resolve().parents[1] / "modelo"
+    epsilon = float(json.loads((raiz / "manifiesto.json").read_text(encoding="utf-8"))["epsilon"])
+    if not con_atisbo:
+        return PredictorNulo(), epsilon
+    from atisbo.modelo import Atisbo
+
+    return Atisbo.cargar(raiz / "atisbo_seed0.pt"), epsilon
+
+
 def _parse_args(argv=None):
     ap = argparse.ArgumentParser(description="Consola en vivo de ATISBO-SPEC.")
     ap.add_argument("--modo", choices=("api", "simulada"), default="simulada")
@@ -300,6 +313,7 @@ def _parse_args(argv=None):
     ap.add_argument("--puerto", type=int, default=8792)
     ap.add_argument("--pausa", type=float, default=0.25)
     ap.add_argument("--sin-sam", action="store_true")
+    ap.add_argument("--atisbo", action="store_true", help="enciende el GRU propio, que no es un modelo de Meta")
     ap.add_argument("--max-llm", type=int, default=400)
     ap.add_argument("--max-sam", type=int, default=500)
     ap.add_argument("--cache", type=str, default="demo/out/vivo_cache")
@@ -307,18 +321,10 @@ def _parse_args(argv=None):
 
 
 def main(argv=None) -> None:
-    from atisbo.exp.comun import generar_trazas, split_episodios
-    from atisbo.modelo import Atisbo
-    from atisbo.sorpresa import calibrar_epsilon
-
     a = _parse_args(argv)
     if a.modo == "api":
         pedir_clave()
-    print("Entrenando Atisbo con las trazas de la semilla 0...", flush=True)
-    tr, _ = split_episodios(generar_trazas(0, 200, 0.02), 0)
-    modelo = Atisbo.entrenar(tr, seed=0, epocas=10)
-    _, te0 = split_episodios(generar_trazas(0, 200, 0.0), 0)
-    epsilon = float(calibrar_epsilon(modelo, te0))
+    modelo, epsilon = cargar_predictor(a.atisbo)
     mundo = Mundo(seed=int(a.mundo), p_perturb=float(a.p))
     bus = Bus()
     if a.modo == "api":
@@ -326,10 +332,10 @@ def main(argv=None) -> None:
         raiz = Path(a.cache) / str(int(time.time()))
         politica = PoliticaLLM(cliente=_ClienteVisto(ClienteMeta(modo="api", cache_dir=str(raiz / "llm")), bus), max_llm_calls=int(a.max_llm))
         cliente_sam = None if a.sin_sam else ClienteSam(modo="api", cache_dir=str(raiz / "sam"), max_red=int(a.max_sam))
-        consola = Consola(modelo, politica, mundo, TAU, epsilon, a.modo, bus=bus, cliente_sam=cliente_sam, pausa=a.pausa)
+        consola = Consola(modelo, politica, mundo, TAU, epsilon, a.modo, bus=bus, cliente_sam=cliente_sam, pausa=a.pausa, con_atisbo=a.atisbo)
     else:
         mascaras = None if a.sin_sam else mascaras_por_color
-        consola = Consola(modelo, PoliticaSimulada(seed=int(a.mundo)), mundo, TAU, epsilon, a.modo, bus=bus, mascaras_de=mascaras, pausa=a.pausa)
+        consola = Consola(modelo, PoliticaSimulada(seed=int(a.mundo)), mundo, TAU, epsilon, a.modo, bus=bus, mascaras_de=mascaras, pausa=a.pausa, con_atisbo=a.atisbo)
     srv = crear_servidor(consola, a.puerto)
     print(f"Consola lista: http://127.0.0.1:{srv.server_address[1]}", flush=True)
     srv.serve_forever()

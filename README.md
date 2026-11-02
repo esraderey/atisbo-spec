@@ -6,7 +6,7 @@ Un modelo pequeño aprende de trazas a predecir las próximas acciones de un age
 
 A small model learns from traces to predict an agent's next actions. While it trusts its prediction, the agent acts without asking; otherwise Muse Spark decides. In E2, calls drop from 92.05 to 49.26 per episode, with success 0.96 against 1.00. With the state rebuilt from SAM 3.1 masks, success is 0.75. Hypothesis H1 fails, and this README reports it. The rest of this document is in Spanish, and its tables and commands read the same.
 
-Watch real recorded episodes on the [public replay page](https://esraderey.github.io/atisbo-spec/). Run the live console with `.venv\Scripts\python.exe -m demo.vivo --modo api`, or with `--modo simulada` for a rehearsal without a key or network.
+Watch real recorded episodes on the [public replay page](https://esraderey.github.io/atisbo-spec/). Run the live console with `.venv\Scripts\python.exe -m demo.vivo --modo api`, or with `--modo simulada` for a rehearsal without a key or network. Atisbo is off by default; add `--atisbo` to turn it on.
 
 ## Built during the hackathon
 
@@ -14,13 +14,39 @@ Before the event I had a personal project with the same name: a small numpy mode
 
 Built with Muse Spark through Muse IDE, a coding tool I had built before the event. The idea, the plan, the key decisions and the instructions are mine. Claude Code was my assistant: it operated Muse IDE following the orders I gave it, reviewed the work, and wrote the demo page, the live console and the video edit.
 
-To check that the core works correctly, I used quality-control skills I had already made before the event: `.agents/` and `AGENTS.md`. They are process tools, not part of the product, so they were removed from the tree in the last commit and remain in the git history. Two of their scripts, `banco.py` and `vetos.py`, predate the hackathon.
+To check that the core works correctly, I used quality-control skills I had already made before the event. They are process tools, not part of the product, and they are not in this repository: `.agents/`, `.muse/` and `AGENTS.md` were removed from the whole git history, as the event rules require. That rewrite changed every commit hash, so the hashes stored in `results/*.json` are the original ones, and `docs/hashes.txt` maps them to the current history.
 
 ## How Meta models are used
 
 Muse Spark (`muse-spark-1.3`) es la política: decide la acción cuando Atisbo no confía o cuando salta la sorpresa, y en E1 decide todos los pasos. En total, los experimentos suman 27 950 llamadas al LLM, contando también lo servido desde la caché.
 
 SAM 3.1 (`sam-3.1`) se usa en E2_sam: una imagen PNG por paso con el prompt `colored square`, y el estado se reconstruye desde las máscaras, con un seguidor que recuerda lo que el bot tapa. En total son 2367 imágenes. Se usa imagen y no vídeo porque el lazo no conoce los fotogramas futuros.
+
+## The GRU is not a Meta model
+
+Atisbo is a small GRU that I trained myself during the event. It is not a Meta model. Meta's models do the core work: Muse Spark is the policy that decides what the agent does, and SAM 3.1 is the only perception in the SAM runs. The GRU only tries to skip Muse Spark calls.
+
+It is off by default. Without `--atisbo`, the live console sends every step to Muse Spark. The experiments E2 to E5 turn it on because measuring it is their purpose, and each one trains its own copy per seed with the same method. The video shows a run with it on.
+
+What it does: it reads the last states of the world as vectors and outputs the next three actions and the predicted states. Its confidence is the product of the three top action probabilities. Below τ, Muse Spark decides.
+
+Training data: traces from the routine policy in this project's own simulator, with no external data. They are included in `modelo/datos_entrenamiento.npz`.
+
+Fixed weights: `modelo/atisbo_seed0.pt`. `modelo/manifiesto.json` holds their SHA-256, the data's SHA-256 and the surprise threshold. This command retrains them from nothing and rewrites all three files:
+
+~~~
+.venv\Scripts\python.exe -m demo.pesos
+~~~
+
+~~~
+Architecture: one GRU layer of 128 units, then 3 linear action heads and 3 linear state heads
+Parameters: 91 950
+Input: window of 8 state vectors
+Data: 200 episodes generated with seed 0 and p = 0.02; 160 used for training, 15 522 samples
+Loss: cross-entropy on the 3 actions + 0.1 × MSE on the predicted states
+Optimizer: Adam, learning rate 0.001, batch size 256, 10 epochs, seed 0, CPU, deterministic
+Surprise threshold: 95th percentile of the 1-step error on held-out p = 0 traces
+~~~
 
 ## Resultados
 
@@ -123,6 +149,7 @@ Después los artefactos:
 
 ~~~
 .venv\Scripts\python.exe -m demo.vivo --modo api
+.venv\Scripts\python.exe -m demo.vivo --modo api --atisbo
 .venv\Scripts\python.exe -m demo.vivo --modo simulada
 ~~~
 

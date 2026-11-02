@@ -1,0 +1,12 @@
+{
+ "semilla": 0,
+ "episodios_generados": 200,
+ "episodios_entrenamiento": 160,
+ "p_perturb": 0.02,
+ "epocas": 10,
+ "muestras": 15522,
+ "parametros": 91950,
+ "epsilon": 2.288594589025908,
+ "pesos_sha256": "74c204688bbb152bd61445a834a8b3f49c4ccc74e1a757b3d44dc2a83cd4aafa",
+ "datos_sha256": "e743a40af1118ce773ec2b2fad5b05cb50333e97bf2125d0219f0a38e016ab47"
+}

@@ -3,6 +3,7 @@ cache/
 .env
 .venv/
 *.pt
+!modelo/*.pt
 __pycache__/
 demo/out/
 *.egg-info/

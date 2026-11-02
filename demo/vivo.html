@@ -96,7 +96,7 @@ h2{margin:0;font-size:15px;color:var(--gris);font-weight:600}
   const $ = (i) => document.getElementById(i);
   const NOMBRES = { ARRIBA: "UP", ABAJO: "DOWN", IZQ: "LEFT", DER: "RIGHT", TOMAR: "PICK", SOLTAR: "DROP", ESPERAR: "WAIT" };
   const lin = $("linea").getContext("2d");
-  let n = 0, fuentes = [], nllm = 0, nsam = 0, pasos = 0, aviso = 0, presupuesto = 1, decisor = "Muse Spark";
+  let n = 0, fuentes = [], nllm = 0, nsam = 0, pasos = 0, aviso = 0, presupuesto = 1, decisor = "Muse Spark", conAtisbo = true;
 
   function linea() {
     const ancho = 1000 / presupuesto;
@@ -128,11 +128,12 @@ h2{margin:0;font-size:15px;color:var(--gris);font-weight:600}
 
   function listo(ev) {
     const vivo = ev.modo === "api";
-    presupuesto = ev.presupuesto;
+    presupuesto = ev.presupuesto; conAtisbo = ev.atisbo;
     decisor = vivo ? "Muse Spark" : "Simulated policy";
     $("modo").textContent = vivo ? "LIVE: real calls to api.meta.ai" : "SIMULATED: no model calls";
     $("modo").className = vivo ? "vivo" : "sim";
-    $("nota").textContent = vivo ? "Simulated 12 × 12 world. The model calls are real." : "Rehearsal: nothing here comes from a Meta model.";
+    const base = vivo ? "Simulated 12 × 12 world. The model calls are real." : "Rehearsal: nothing here comes from a Meta model.";
+    $("nota").textContent = `${base} ${ev.atisbo ? "Atisbo on: my own small model, not a Meta model." : `Atisbo off: ${decisor} decides every step.`}`;
     $("t-frame").textContent = ev.sam ? (vivo ? "Frame sent to SAM 3.1" : "World frame") : "World frame, SAM 3.1 off";
     $("t-mascaras").textContent = ev.sam ? (vivo ? "Masks returned by SAM 3.1" : "Masks from pixel colors, not SAM 3.1") : "No masks, SAM 3.1 off";
     $("t-llm").textContent = decisor; $("t-nllm").textContent = `${decisor} decisions`;
@@ -156,8 +157,8 @@ h2{margin:0;font-size:15px;color:var(--gris);font-weight:600}
       const a = NOMBRES[ev.accion] || ev.accion, llm = ev.fuente === "llm";
       if (llm) { nllm++; $("nllm").textContent = nllm; }
       $("quien").className = ev.fuente;
-      $("quien").textContent = llm ? `${motivo(ev)}: ${decisor} decides ${a}` : `Atisbo decides ${a}, no call`;
-      $("conf").textContent = ev.conf < 0 ? "blind" : ev.conf.toFixed(2);
+      $("quien").textContent = llm ? `${conAtisbo ? motivo(ev) + ": " : ""}${decisor} decides ${a}` : `Atisbo decides ${a}, no call`;
+      $("conf").textContent = !conAtisbo ? "off" : ev.conf < 0 ? "blind" : ev.conf.toFixed(2);
       $("barra").style.width = `${Math.max(0, Math.min(1, ev.conf)) * 100}%`;
       $("barra").style.background = ev.conf >= 0.5 ? "var(--verde)" : "var(--rojo)";
       $("pred").textContent = llm ? "" : "Atisbo's plan: " + ev.predichas.map((x) => NOMBRES[x] || x).join(", ");
