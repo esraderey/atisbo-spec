@@ -2,9 +2,19 @@
 
 Un modelo pequeño aprende de trazas a predecir las próximas acciones de un agente. Mientras confía en lo predicho, el agente actúa sin preguntar; si no, decide Muse Spark. La pregunta es cuántas llamadas se ahorran y qué cuesta. Respuesta corta: E2 baja de 92.05 a 49.26 llamadas por episodio con éxito 0.96 frente a 1.00, y la hipótesis H1 no se cumple.
 
+## In English
+
+A small model learns from traces to predict an agent's next actions. While it trusts its prediction, the agent acts without asking; otherwise Muse Spark decides. In E2, calls drop from 92.05 to 49.26 per episode, with success 0.96 against 1.00. With the state rebuilt from SAM 3.1 masks, success is 0.75. Hypothesis H1 fails, and this README reports it. The rest of this document is in Spanish, and its tables and commands read the same.
+
+Run the live console with `.venv\Scripts\python.exe -m demo.vivo --modo api`, or with `--modo simulada` for a rehearsal without a key or network.
+
 ## Built during the hackathon
 
-Antes del evento existía un proyecto propio con el mismo nombre: un modelo pequeño en numpy que anticipa hacia dónde se mueve un agente. Aquí se reconstruyó la idea desde cero para otra tarea, predecir las próximas acciones del agente, sin reutilizar su código. El código del proyecto (`atisbo/`, `demo/` y `tests/`) se escribió durante el hackathon de Meta (27 oct – 4 nov 2026). `.agents/` y `AGENTS.md` son habilidades de proceso, con gates y vetos, creadas o adaptadas para Muse a partir de lo aprendido usando otras IAs. No son parte del producto, y dos de sus scripts, `banco.py` y `vetos.py`, son anteriores al hackathon.
+Before the event I had a personal project with the same name: a small numpy model that anticipates where an agent moves. Here the idea was rebuilt from scratch for another task, predicting the agent's next actions, with none of its code. All the project code (`atisbo/`, `demo/` and `tests/`) was written during the Meta hackathon (27 oct – 4 nov 2026).
+
+Built with Muse Spark through Muse IDE, a coding tool I had built before the event. The idea, the plan, the key decisions and the instructions are mine. Claude Code was my assistant: it operated Muse IDE following the orders I gave it, reviewed the work, and wrote the demo page, the live console and the video edit.
+
+To check that the core works correctly, I used quality-control skills I had already made before the event: `.agents/` and `AGENTS.md`. They are process tools, not part of the product, so they were removed from the tree in the last commit and remain in the git history. Two of their scripts, `banco.py` and `vetos.py`, predate the hackathon.
 
 ## How Meta models are used
 
